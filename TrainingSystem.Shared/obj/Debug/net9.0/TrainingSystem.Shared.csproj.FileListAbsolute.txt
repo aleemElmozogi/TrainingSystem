@@ -1,0 +1,11 @@
+/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Shared/bin/Debug/net9.0/TrainingSystem.Shared.deps.json
+/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Shared/bin/Debug/net9.0/TrainingSystem.Shared.dll
+/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Shared/bin/Debug/net9.0/TrainingSystem.Shared.pdb
+/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Shared/obj/Debug/net9.0/TrainingSystem.Shared.GeneratedMSBuildEditorConfig.editorconfig
+/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Shared/obj/Debug/net9.0/TrainingSystem.Shared.AssemblyInfoInputs.cache
+/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Shared/obj/Debug/net9.0/TrainingSystem.Shared.AssemblyInfo.cs
+/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Shared/obj/Debug/net9.0/TrainingSystem.Shared.csproj.CoreCompileInputs.cache
+/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Shared/obj/Debug/net9.0/TrainingSystem.Shared.dll
+/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Shared/obj/Debug/net9.0/refint/TrainingSystem.Shared.dll
+/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Shared/obj/Debug/net9.0/TrainingSystem.Shared.pdb
+/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Shared/obj/Debug/net9.0/ref/TrainingSystem.Shared.dll

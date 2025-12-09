@@ -1,0 +1,63 @@
+@page "/employees/edit/{id:int}"
+@inject IClientService ClientService
+@inject NavigationManager Navigation
+@inject IJSRuntime JS
+
+<PageTitle>تعديل بيانات الموظف</PageTitle>
+
+<h1>تعديل بيانات الموظف</h1>
+
+@if (employee == null)
+{
+    <p><em>جاري التحميل أو الموظف غير موجود...</em></p>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-6">
+            <EditForm Model="@employee" OnValidSubmit="HandleValidSubmit">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+
+                <div class="mb-3">
+                    <label for="fullName" class="form-label">الاسم الكامل</label>
+                    <InputText id="fullName" class="form-control" @bind-Value="employee.FullName" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="department" class="form-label">القسم</label>
+                    <InputText id="department" class="form-control" @bind-Value="employee.Department" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="jobTitle" class="form-label">المسمى الوظيفي</label>
+                    <InputText id="jobTitle" class="form-control" @bind-Value="employee.JobTitle" />
+                </div>
+
+                <button type="submit" class="btn btn-success">حفظ التعديلات</button>
+                <a href="employees" class="btn btn-secondary">إلغاء</a>
+            </EditForm>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    private Employee? employee;
+
+    protected override async Task OnInitializedAsync()
+    {
+        employee = await ClientService.GetEmployeeByIdAsync(Id);
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        if (employee != null)
+        {
+            await ClientService.UpdateEmployeeAsync(Id, employee);
+            Navigation.NavigateTo("employees");
+        }
+    }
+}

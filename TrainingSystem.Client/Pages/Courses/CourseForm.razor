@@ -1,0 +1,57 @@
+@page "/courses/add"
+@inject IClientService ClientService
+@inject NavigationManager Navigation
+
+<PageTitle>إضافة دورة</PageTitle>
+
+<h1>إضافة دورة جديدة</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <EditForm Model="@course" OnValidSubmit="HandleValidSubmit">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div class="mb-3">
+                <label for="title" class="form-label">عنوان الدورة</label>
+                <InputText id="title" class="form-control" @bind-Value="course.Title" />
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label">الوصف</label>
+                <InputTextArea id="description" class="form-control" @bind-Value="course.Description" />
+            </div>
+
+            <div class="mb-3">
+                <label for="type" class="form-label">النوع</label>
+                <InputSelect id="type" class="form-control" @bind-Value="course.Type">
+                    <option value="@CourseType.ShortTerm">قصيرة المدى</option>
+                    <option value="@CourseType.LongTerm">طويلة المدى</option>
+                </InputSelect>
+            </div>
+
+            <div class="mb-3">
+                <label for="startDate" class="form-label">تاريخ البدء</label>
+                <InputDate id="startDate" class="form-control" @bind-Value="course.StartDate" />
+            </div>
+
+            <div class="mb-3">
+                <label for="endDate" class="form-label">تاريخ الانتهاء</label>
+                <InputDate id="endDate" class="form-control" @bind-Value="course.EndDate" />
+            </div>
+
+            <button type="submit" class="btn btn-success">حفظ</button>
+            <a href="courses" class="btn btn-secondary">إلغاء</a>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+    private Course course = new() { Title = "", StartDate = DateTime.Today, EndDate = DateTime.Today.AddDays(1) };
+
+    private async Task HandleValidSubmit()
+    {
+        await ClientService.CreateCourseAsync(course);
+        Navigation.NavigateTo("courses");
+    }
+}

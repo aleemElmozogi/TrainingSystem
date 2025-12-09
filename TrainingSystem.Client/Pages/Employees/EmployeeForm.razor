@@ -1,0 +1,44 @@
+@page "/employees/add"
+@inject IClientService ClientService
+@inject NavigationManager Navigation
+
+<PageTitle>إضافة موظف</PageTitle>
+
+<h1>إضافة موظف جديد</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <EditForm Model="@employee" OnValidSubmit="HandleValidSubmit">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div class="mb-3">
+                <label for="fullName" class="form-label">الاسم الكامل</label>
+                <InputText id="fullName" class="form-control" @bind-Value="employee.FullName" />
+            </div>
+
+            <div class="mb-3">
+                <label for="department" class="form-label">القسم</label>
+                <InputText id="department" class="form-control" @bind-Value="employee.Department" />
+            </div>
+
+            <div class="mb-3">
+                <label for="jobTitle" class="form-label">المسمى الوظيفي</label>
+                <InputText id="jobTitle" class="form-control" @bind-Value="employee.JobTitle" />
+            </div>
+
+            <button type="submit" class="btn btn-success">حفظ</button>
+            <a href="employees" class="btn btn-secondary">إلغاء</a>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+    private Employee employee = new() { FullName = "" };
+
+    private async Task HandleValidSubmit()
+    {
+        await ClientService.CreateEmployeeAsync(employee);
+        Navigation.NavigateTo("employees");
+    }
+}

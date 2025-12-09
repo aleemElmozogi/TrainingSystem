@@ -1,0 +1,37 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/blazor.webassembly.js",
+      "PackagePath": "staticwebassets/_framework/blazor.webassembly.js"
+    },
+    {
+      "Id": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/wwwroot/appsettings.Development.json",
+      "PackagePath": "staticwebassets/appsettings.Development.json"
+    },
+    {
+      "Id": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/wwwroot/appsettings.json",
+      "PackagePath": "staticwebassets/appsettings.json"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.TrainingSystem.Client.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.TrainingSystem.Client.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.build.TrainingSystem.Client.props",
+      "PackagePath": "build\\TrainingSystem.Client.props"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.buildMultiTargeting.TrainingSystem.Client.props",
+      "PackagePath": "buildMultiTargeting\\TrainingSystem.Client.props"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.buildTransitive.TrainingSystem.Client.props",
+      "PackagePath": "buildTransitive\\TrainingSystem.Client.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

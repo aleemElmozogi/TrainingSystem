@@ -1,0 +1,144 @@
+@page "/enrollments"
+@inject IClientService ClientService
+@inject IJSRuntime JS
+
+<PageTitle>تسجيل الموظفين</PageTitle>
+
+<h1>تسجيل الموظفين في الدورات</h1>
+
+<div class="row mb-4">
+    <div class="col-md-5">
+        <label class="form-label">اختر الدورة</label>
+        <select class="form-select" @onchange="OnCourseChanged">
+            <option value="">-- اختر دورة --</option>
+            @if (courses != null)
+            {
+                @foreach (var c in courses)
+                {
+                    <option value="@c.Id">@c.Title</option>
+                }
+            }
+        </select>
+    </div>
+    <div class="col-md-5">
+        <label class="form-label">اختر الموظف</label>
+        <select class="form-select" @bind="selectedEmployeeId">
+            <option value="0">-- اختر موظف --</option>
+            @if (employees != null)
+            {
+                @foreach (var e in employees)
+                {
+                    <option value="@e.Id">@e.FullName</option>
+                }
+            }
+        </select>
+    </div>
+    <div class="col-md-2 d-flex align-items-end">
+        <button class="btn btn-primary w-100" @onclick="Enroll">تسجيل</button>
+    </div>
+</div>
+
+<h3>المسجلين في الدورة المختارة</h3>
+
+@if (enrollments == null)
+{
+    @if (selectedCourseId == 0)
+    {
+        <p class="text-muted">الرجاء اختيار دورة لعرض المسجلين.</p>
+    }
+    else
+    {
+        <p>جاري التحميل...</p>
+    }
+}
+else if (enrollments.Count == 0)
+{
+    <p>لا يوجد موظفين مسجلين حتى الآن.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>الموظف</th>
+                <th>تاريخ التسجيل</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var en in enrollments)
+            {
+                <tr>
+                    <td>@en.Employee?.FullName</td>
+                    <td>@DateTime.Now.ToShortDateString()</td>
+                    <td>
+                         <button class="btn btn-sm btn-danger" @onclick="() => RemoveEnrollment(en)">إلغاء التسجيل</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Course>? courses;
+    private List<Employee>? employees;
+    private List<Enrollment>? enrollments;
+
+    private int selectedCourseId;
+    private int selectedEmployeeId;
+
+    protected override async Task OnInitializedAsync()
+    {
+        courses = await ClientService.GetCoursesAsync();
+        employees = await ClientService.GetEmployeesAsync();
+    }
+
+    private async Task OnCourseChanged(ChangeEventArgs e)
+    {
+        if (int.TryParse(e.Value?.ToString(), out int id) && id > 0)
+        {
+            selectedCourseId = id;
+            await LoadEnrollments();
+        }
+        else
+        {
+            selectedCourseId = 0;
+            enrollments = null;
+        }
+    }
+
+    private async Task LoadEnrollments()
+    {
+        enrollments = await ClientService.GetEnrollmentsByCourseAsync(selectedCourseId);
+    }
+
+    private async Task Enroll()
+    {
+        if (selectedCourseId == 0 || selectedEmployeeId == 0)
+        {
+            await JS.InvokeVoidAsync("alert", "الرجاء اختيار الدورة والموظف");
+            return;
+        }
+
+        var enrollment = new Enrollment { CourseId = selectedCourseId, EmployeeId = selectedEmployeeId };
+        try 
+        {
+            await ClientService.EnrollEmployeeAsync(enrollment);
+            await LoadEnrollments();
+            selectedEmployeeId = 0; // Reset employee selection
+        }
+        catch(Exception)
+        {
+            await JS.InvokeVoidAsync("alert", "حدث خطأ أثناء التسجيل (ربما مسجل مسبقاً)");
+        }
+    }
+
+    private async Task RemoveEnrollment(Enrollment enrollment)
+    {
+         if (await JS.InvokeAsync<bool>("confirm", "هل أنت متأكد من إلغاء تسجيل هذا الموظف؟"))
+        {
+            await ClientService.RemoveEnrollmentAsync(enrollment.CourseId, enrollment.EmployeeId);
+            await LoadEnrollments();
+        }
+    }
+}

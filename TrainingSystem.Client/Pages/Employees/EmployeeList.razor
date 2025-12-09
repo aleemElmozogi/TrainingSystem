@@ -1,0 +1,69 @@
+@page "/employees"
+@inject IClientService ClientService
+@inject NavigationManager Navigation
+
+<PageTitle>الموظفين</PageTitle>
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>قائمة الموظفين</h1>
+    <a href="employees/add" class="btn btn-primary">إضافة موظف</a>
+</div>
+
+@if (employees == null)
+{
+    <p><em>جاري التحميل...</em></p>
+}
+else
+{
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>المعرف</th>
+                <th>الاسم الكامل</th>
+                <th>القسم</th>
+                <th>المسمى الوظيفي</th>
+                <th>إجراءات</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var emp in employees)
+            {
+                <tr>
+                    <td>@emp.Id</td>
+                    <td>@emp.FullName</td>
+                    <td>@emp.Department</td>
+                    <td>@emp.JobTitle</td>
+                    <td>
+                        <a href="employees/edit/@emp.Id" class="btn btn-sm btn-warning">تعديل</a>
+                        <button class="btn btn-sm btn-danger" @onclick="() => DeleteEmployee(emp.Id)">حذف</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@inject IJSRuntime JS
+
+@code {
+    private List<Employee>? employees;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadEmployees();
+    }
+
+    private async Task LoadEmployees()
+    {
+        employees = await ClientService.GetEmployeesAsync();
+    }
+
+    private async Task DeleteEmployee(int id)
+    {
+        if (await JS.InvokeAsync<bool>("confirm", "هل أنت متأكد من حذف هذا الموظف؟"))
+        {
+            await ClientService.DeleteEmployeeAsync(id);
+            await LoadEmployees();
+        }
+    }
+}

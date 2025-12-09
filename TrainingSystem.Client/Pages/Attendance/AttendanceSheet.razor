@@ -1,0 +1,139 @@
+@page "/attendance"
+@inject IClientService ClientService
+@inject IJSRuntime JS
+
+<PageTitle>تحضير الحضور</PageTitle>
+
+<h1>سجل الحضور والغياب</h1>
+
+<div class="row mb-4">
+    <div class="col-md-6">
+        <label class="form-label">الدورة التدريبية</label>
+        <select class="form-select" @onchange="OnCourseChanged">
+            <option value="">-- اختر دورة --</option>
+            @if (courses != null)
+            {
+                @foreach (var c in courses)
+                {
+                    <option value="@c.Id">@c.Title</option>
+                }
+            }
+        </select>
+    </div>
+    <div class="col-md-6">
+        <label class="form-label">التاريخ</label>
+        <input type="date" class="form-control" @bind="selectedDate" @bind:after="LoadAttendance" />
+    </div>
+</div>
+
+@if (selectedCourseId > 0)
+{
+    @if (records == null)
+    {
+        <p>جاري تحميل القائمة...</p>
+    }
+    else
+    {
+        <div class="card p-3">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>الموظف</th>
+                        <th class="text-center">حاضر</th>
+                        <th>ملاحظات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var rec in records)
+                    {
+                        <tr>
+                            <td class="align-middle">@rec.Employee?.FullName</td>
+                            <td class="text-center">
+                                <input type="checkbox" class="form-check-input" @bind="rec.IsPresent" />
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" @bind="rec.Notes" placeholder="ملاحظة..." />
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            
+            <button class="btn btn-success mt-3" @onclick="Save">حفظ الحضور</button>
+        </div>
+    }
+}
+
+@code {
+    private List<Course>? courses;
+    private DateTime selectedDate = DateTime.Today;
+    private int selectedCourseId;
+    
+    // We mix Enrollments and AttendanceRecords here.
+    // Ideally, we fetch Enrollments -> create a list of AttendanceRecords (either existing or new default)
+    private List<AttendanceRecord>? records;
+
+    protected override async Task OnInitializedAsync()
+    {
+        courses = await ClientService.GetCoursesAsync();
+    }
+
+    private async Task OnCourseChanged(ChangeEventArgs e)
+    {
+        if (int.TryParse(e.Value?.ToString(), out int id) && id > 0)
+        {
+            selectedCourseId = id;
+            await LoadAttendance();
+        }
+        else
+        {
+            selectedCourseId = 0;
+            records = null;
+        }
+    }
+
+    private async Task LoadAttendance()
+    {
+        if (selectedCourseId == 0) return;
+
+        records = null; // show loading
+        
+        // 1. Get Enrollments for the course (to know who SHOULD be there)
+        var enrollments = await ClientService.GetEnrollmentsByCourseAsync(selectedCourseId);
+        
+        // 2. Get Existing Attendance for the date
+        var existingAttendance = await ClientService.GetAttendanceAsync(selectedCourseId, selectedDate);
+        
+        // 3. Merge
+        records = new List<AttendanceRecord>();
+        
+        foreach (var enrollment in enrollments)
+        {
+            var existing = existingAttendance.FirstOrDefault(a => a.EmployeeId == enrollment.EmployeeId);
+            if (existing != null)
+            {
+                records.Add(existing);
+            }
+            else
+            {
+                // Create placeholder for UI (not saved yet)
+                records.Add(new AttendanceRecord 
+                { 
+                    CourseId = selectedCourseId, 
+                    EmployeeId = enrollment.EmployeeId,
+                    Employee = enrollment.Employee, // For display
+                    Date = selectedDate,
+                    IsPresent = false 
+                });
+            }
+        }
+    }
+
+    private async Task Save()
+    {
+        if (records == null) return;
+        
+        await ClientService.SaveAttendanceAsync(records);
+        await JS.InvokeVoidAsync("alert", "تم حفظ الحضور بنجاح");
+    }
+}

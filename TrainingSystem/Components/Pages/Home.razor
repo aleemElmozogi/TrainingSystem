@@ -1,0 +1,70 @@
+﻿@page "/"
+@using Microsoft.EntityFrameworkCore
+@using TrainingSystem.Data
+@using TrainingSystem.Shared.Domain
+@inject IDbContextFactory<AppDbContext> DbFactory
+
+<PageTitle>نظام التدريب والمتابعة</PageTitle>
+
+<div class="text-center mt-5">
+    <h1>مرحباً بكم في نظام إدارة التدريب</h1>
+    <p class="lead">نظام متكامل لإدارة الموظفين، الدورات التدريبية، وتسجيل الحضور.</p>
+    
+    <div class="row mt-5">
+        <div class="col-md-3">
+            <div class="card text-white bg-primary mb-3">
+                <div class="card-header">الموظفين</div>
+                <div class="card-body">
+                    <h5 class="card-title">@stats.EmployeeCount</h5>
+                    <p class="card-text">موظف مسجل</p>
+                    <a href="employees" class="btn btn-light btn-sm">عرض</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-success mb-3">
+                <div class="card-header">الدورات</div>
+                <div class="card-body">
+                    <h5 class="card-title">@stats.CourseCount</h5>
+                    <p class="card-text">دورة تدريبية</p>
+                    <a href="courses" class="btn btn-light btn-sm">عرض</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-warning mb-3">
+                <div class="card-header">التسجيلات</div>
+                <div class="card-body">
+                    <h5 class="card-title">@stats.EnrollmentCount</h5>
+                    <p class="card-text">إجمالي التسجيلات</p>
+                    <a href="enrollments" class="btn btn-light btn-sm">عرض</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+             <div class="card text-white bg-info mb-3">
+                <div class="card-header">الحضور</div>
+                <div class="card-body">
+                    <h5 class="card-title">متابعة</h5>
+                    <p class="card-text">سجل الحضور</p>
+                    <a href="attendance" class="btn btn-light btn-sm">عرض</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private DashboardStats stats = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+        stats = new DashboardStats
+        {
+            EmployeeCount = await context.Employees.CountAsync(),
+            CourseCount = await context.Courses.CountAsync(),
+            EnrollmentCount = await context.Enrollments.CountAsync()
+        };
+    }
+}

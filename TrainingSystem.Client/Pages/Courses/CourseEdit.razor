@@ -1,0 +1,75 @@
+@page "/courses/edit/{id:int}"
+@inject IClientService ClientService
+@inject NavigationManager Navigation
+
+<PageTitle>تعديل الدورة</PageTitle>
+
+<h1>تعديل بيانات الدورة</h1>
+
+@if (course == null)
+{
+    <p><em>جاري التحميل...</em></p>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-6">
+            <EditForm Model="@course" OnValidSubmit="HandleValidSubmit">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+
+                <div class="mb-3">
+                    <label for="title" class="form-label">عنوان الدورة</label>
+                    <InputText id="title" class="form-control" @bind-Value="course.Title" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">الوصف</label>
+                    <InputTextArea id="description" class="form-control" @bind-Value="course.Description" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="type" class="form-label">النوع</label>
+                    <InputSelect id="type" class="form-control" @bind-Value="course.Type">
+                        <option value="@CourseType.ShortTerm">قصيرة المدى</option>
+                        <option value="@CourseType.LongTerm">طويلة المدى</option>
+                    </InputSelect>
+                </div>
+
+                <div class="mb-3">
+                    <label for="startDate" class="form-label">تاريخ البدء</label>
+                    <InputDate id="startDate" class="form-control" @bind-Value="course.StartDate" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="endDate" class="form-label">تاريخ الانتهاء</label>
+                    <InputDate id="endDate" class="form-control" @bind-Value="course.EndDate" />
+                </div>
+
+                <button type="submit" class="btn btn-success">حفظ التعديلات</button>
+                <a href="courses" class="btn btn-secondary">إلغاء</a>
+            </EditForm>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    private Course? course;
+
+    protected override async Task OnInitializedAsync()
+    {
+        course = await ClientService.GetCourseByIdAsync(Id);
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        if (course != null)
+        {
+            await ClientService.UpdateCourseAsync(Id, course);
+            Navigation.NavigateTo("courses");
+        }
+    }
+}

@@ -1,0 +1,68 @@
+@page "/courses"
+@inject IClientService ClientService
+
+<PageTitle>الدورات التدريبية</PageTitle>
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>الدورات التدريبية</h1>
+    <a href="courses/add" class="btn btn-primary">إضافة دورة</a>
+</div>
+
+@if (courses == null)
+{
+    <p><em>جاري التحميل...</em></p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>العنوان</th>
+                <th>النوع</th>
+                <th>تاريخ البدء</th>
+                <th>تاريخ الانتهاء</th>
+                <th>إجراءات</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var course in courses)
+            {
+                <tr>
+                    <td>@course.Title</td>
+                    <td>@(course.Type == CourseType.ShortTerm ? "قصيرة المدى" : "طويلة المدى")</td>
+                    <td>@course.StartDate.ToShortDateString()</td>
+                    <td>@course.EndDate.ToShortDateString()</td>
+                    <td>
+                        <a href="courses/edit/@course.Id" class="btn btn-sm btn-warning">تعديل</a>
+                        <button class="btn btn-sm btn-danger" @onclick="() => DeleteCourse(course.Id)">حذف</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@inject IJSRuntime JS
+
+@code {
+    private List<Course>? courses;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadCourses();
+    }
+
+    private async Task LoadCourses()
+    {
+        courses = await ClientService.GetCoursesAsync();
+    }
+
+    private async Task DeleteCourse(int id)
+    {
+        if (await JS.InvokeAsync<bool>("confirm", "هل أنت متأكد من حذف هذه الدورة؟"))
+        {
+            await ClientService.DeleteCourseAsync(id);
+            await LoadCourses();
+        }
+    }
+}
