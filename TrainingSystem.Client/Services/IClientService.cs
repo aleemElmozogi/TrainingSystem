@@ -29,4 +29,9 @@ public interface IClientService
 
     // Stats
     Task<DashboardStats> GetDashboardStatsAsync();
+
+    // Reports
+    Task<List<TrainingSystem.Shared.DTOs.CourseAssignmentDto>> GetCourseAssignmentsReportAsync(int courseId);
+    Task<List<TrainingSystem.Shared.DTOs.EmployeeAssignmentDto>> GetEmployeeAssignmentsReportAsync(int employeeId);
+    Task<List<TrainingSystem.Shared.DTOs.AttendanceReportDto>> GetAttendanceReportAsync(int? courseId, int? employeeId, DateTime? startDate, DateTime? endDate);
 }

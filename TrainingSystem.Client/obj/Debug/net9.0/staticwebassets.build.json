@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qFA1rlf4unouKi4O9IDSdm1f4AlNVNP6fRazAuu58Ag=",
+  "Hash": "haGZLCUykPmkORoZt1D01b7WlIyfMDVLrej8aaJdOi4=",
   "Source": "TrainingSystem.Client",
   "BasePath": "/",
   "Mode": "Default",
@@ -17,6 +17,48 @@
   ],
   "Assets": [
     {
+      "Identity": "/Users/abdul-aleem/.nuget/packages/mudblazor/8.0.0/staticwebassets/MudBlazor.min.css",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "/Users/abdul-aleem/.nuget/packages/mudblazor/8.0.0/staticwebassets/",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "du7z45fy1o",
+      "Integrity": "i8XzH6dctsjbqV/MgK7hApUUdkZZ11RI0YiL+fzuUZY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Users/abdul-aleem/.nuget/packages/mudblazor/8.0.0/staticwebassets/MudBlazor.min.css"
+    },
+    {
+      "Identity": "/Users/abdul-aleem/.nuget/packages/mudblazor/8.0.0/staticwebassets/MudBlazor.min.js",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "/Users/abdul-aleem/.nuget/packages/mudblazor/8.0.0/staticwebassets/",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "u9015k2po7",
+      "Integrity": "XvOTEdgrWj6UBIoc6ja7PecxNlvhU1P8k22QWXtsQAo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Users/abdul-aleem/.nuget/packages/mudblazor/8.0.0/staticwebassets/MudBlazor.min.js"
+    },
+    {
       "Identity": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/blazor.boot.json",
       "SourceId": "TrainingSystem.Client",
       "SourceType": "Computed",
@@ -31,8 +73,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "manifest",
-      "Fingerprint": "jqn70yrsfm",
-      "Integrity": "FRQ0GmeCQab1xpvEo9DmacCKCOiQkd/zCPCLGAoQp5E=",
+      "Fingerprint": "zo4k14cxd2",
+      "Integrity": "PXpNdt0ex1Dhrki+6RzFVYAX+82vX4KxQ23it+jUK0E=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "obj/Debug/net9.0/blazor.boot.json"
@@ -605,6 +647,48 @@
       "OriginalItemSpec": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/webcil/Microsoft.Extensions.FileSystemGlobbing.wasm"
     },
     {
+      "Identity": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/Microsoft.Extensions.Localization.Abstractions.wasm",
+      "SourceId": "TrainingSystem.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.Extensions.Localization.Abstractions#[.{fingerprint}]!.wasm",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "WasmResource",
+      "AssetTraitValue": "runtime",
+      "Fingerprint": "o4jp2hcm79",
+      "Integrity": "GJNjpp2mlMIYboBhzukWw5r2Z24PsB0E9Gj9VoTGKEI=",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/webcil/Microsoft.Extensions.Localization.Abstractions.wasm"
+    },
+    {
+      "Identity": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/Microsoft.Extensions.Localization.wasm",
+      "SourceId": "TrainingSystem.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.Extensions.Localization#[.{fingerprint}]!.wasm",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "WasmResource",
+      "AssetTraitValue": "runtime",
+      "Fingerprint": "bvn14pws96",
+      "Integrity": "6UgMJoVZBfDdfzYR0aKVK6BWArxpXC1qiQDDjiXw/L4=",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/webcil/Microsoft.Extensions.Localization.wasm"
+    },
+    {
       "Identity": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/Microsoft.Extensions.Logging.Abstractions.wasm",
       "SourceId": "TrainingSystem.Client",
       "SourceType": "Computed",
@@ -834,6 +918,27 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/webcil/mscorlib.wasm"
+    },
+    {
+      "Identity": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/MudBlazor.wasm",
+      "SourceId": "TrainingSystem.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "_framework/MudBlazor#[.{fingerprint}]!.wasm",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "WasmResource",
+      "AssetTraitValue": "runtime",
+      "Fingerprint": "0eq8xpu5ec",
+      "Integrity": "aONoa+It9lmbIcWFZuZwMlnZKG7BORJn8QjUcxhpl7o=",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/webcil/MudBlazor.wasm"
     },
     {
       "Identity": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/netstandard.wasm",
@@ -4252,8 +4357,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "symbol",
-      "Fingerprint": "ffmmwdj1sn",
-      "Integrity": "C/+yAAsfAOw3kb0JH2qX7xXrrkDjzzUcJdvhLRspEjk=",
+      "Fingerprint": "dwg52qftiq",
+      "Integrity": "zf70PdSAjFFoVM6q+/OiQFHbhMlfUIe4qjQ+LI8l4DQ=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "obj/Debug/net9.0/TrainingSystem.Client.pdb"
@@ -4273,8 +4378,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "runtime",
-      "Fingerprint": "ieupe37lqy",
-      "Integrity": "KtD/w2OBreRIxyDgowV70nzj4zrFqL/Pc2QmzUxqU9w=",
+      "Fingerprint": "rf6zdw1wd8",
+      "Integrity": "qTcRIY6wsNewfLy3s+9CcVHrOdaxc07SM/rkuiK+bXM=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/webcil/TrainingSystem.Client.wasm"
@@ -4294,8 +4399,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "symbol",
-      "Fingerprint": "4rtyiocp2q",
-      "Integrity": "4IKHICcy+QbCUmEDTL0eqPwRDcVPcRf15hOS0/Nm2v0=",
+      "Fingerprint": "o3nkgdgcuk",
+      "Integrity": "9BXdGbvYKqF0d0qaoHUzW/w61GWu/l5EmgcQE7bhrmU=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Shared/bin/Debug/net9.0/TrainingSystem.Shared.pdb"
@@ -4315,8 +4420,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "runtime",
-      "Fingerprint": "2vcyrbcith",
-      "Integrity": "YkO4l+LgK1WCObaUswYMXdaWzuabVKDSAJ/9VVj1zbQ=",
+      "Fingerprint": "lho8ku8b65",
+      "Integrity": "+TnlKxFrjTo+txJOFmOffDG6H5WIzDso3J+rQMAfUxA=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/webcil/TrainingSystem.Shared.wasm"
@@ -4469,6 +4574,27 @@
       "OriginalItemSpec": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/System.Security.Cryptography.Primitives.wasm"
     },
     {
+      "Identity": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/0wz98yz2xy-u9015k2po7.gz",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/Users/abdul-aleem/.nuget/packages/mudblazor/8.0.0/staticwebassets/MudBlazor.min.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "4hkkt66fql",
+      "Integrity": "WCZ8AU0kAcPfgs4A/MwBkIJxe6po0xnxpbU+cxiL6OI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Users/abdul-aleem/.nuget/packages/mudblazor/8.0.0/staticwebassets/MudBlazor.min.js"
+    },
+    {
       "Identity": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/0zi38fgqmo-hs7o6v5tiq.gz",
       "SourceId": "TrainingSystem.Client",
       "SourceType": "Computed",
@@ -4488,6 +4614,27 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/System.Threading.Tasks.Extensions.wasm"
+    },
+    {
+      "Identity": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/1k7f6pczdz-bvn14pws96.gz",
+      "SourceId": "TrainingSystem.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.Extensions.Localization#[.{fingerprint=bvn14pws96}]!.wasm.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/Microsoft.Extensions.Localization.wasm",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "mk82cf8wh1",
+      "Integrity": "5j8aQtcJRrJoCURQVqWie4VdbCVRCAXWoCODQfWj9bM=",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/Microsoft.Extensions.Localization.wasm"
     },
     {
       "Identity": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/1pknayve5c-69wknkil2z.gz",
@@ -4595,12 +4742,12 @@
       "OriginalItemSpec": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/dotnet.native.wasm"
     },
     {
-      "Identity": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/37plpla4pc-ffmmwdj1sn.gz",
+      "Identity": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/37plpla4pc-dwg52qftiq.gz",
       "SourceId": "TrainingSystem.Client",
       "SourceType": "Computed",
       "ContentRoot": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/",
       "BasePath": "/",
-      "RelativePath": "_framework/TrainingSystem.Client#[.{fingerprint=ffmmwdj1sn}]!.pdb.gz",
+      "RelativePath": "_framework/TrainingSystem.Client#[.{fingerprint=dwg52qftiq}]!.pdb.gz",
       "AssetKind": "Build",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -4609,8 +4756,8 @@
       "RelatedAsset": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/TrainingSystem.Client.pdb",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "7q588iy2lp",
-      "Integrity": "//6HnX7dhWdyEkUqgxWZCkc2pDoyxfBgD8h4eDsAU1g=",
+      "Fingerprint": "say8mp4dah",
+      "Integrity": "XEYYjEpvNlfRUQ94csb+c3Dr4tN4rl/Akr9dwvrWWDY=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/TrainingSystem.Client.pdb"
@@ -5918,6 +6065,27 @@
       "OriginalItemSpec": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/System.Security.Claims.wasm"
     },
     {
+      "Identity": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/dwbz3tonpx-0eq8xpu5ec.gz",
+      "SourceId": "TrainingSystem.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/",
+      "BasePath": "/",
+      "RelativePath": "_framework/MudBlazor#[.{fingerprint=0eq8xpu5ec}]!.wasm.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/MudBlazor.wasm",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "m6t2zj6m4f",
+      "Integrity": "wvDenXUi2kSyYeIbjtfofvc7dLyR1HYfVAug3xn4QrU=",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/MudBlazor.wasm"
+    },
+    {
       "Identity": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/e33l9kemkc-whx15sk3zg.gz",
       "SourceId": "TrainingSystem.Client",
       "SourceType": "Computed",
@@ -6464,6 +6632,27 @@
       "OriginalItemSpec": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/System.Private.CoreLib.wasm"
     },
     {
+      "Identity": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/ias1cswyo0-o4jp2hcm79.gz",
+      "SourceId": "TrainingSystem.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.Extensions.Localization.Abstractions#[.{fingerprint=o4jp2hcm79}]!.wasm.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/Microsoft.Extensions.Localization.Abstractions.wasm",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "g7sieftasj",
+      "Integrity": "tObQKdXSAyG1vCoCl0nNGFED1IvT2NN13pHMVsrrBUU=",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/Microsoft.Extensions.Localization.Abstractions.wasm"
+    },
+    {
       "Identity": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/iegcei39fk-ujtlhftd9v.gz",
       "SourceId": "TrainingSystem.Client",
       "SourceType": "Computed",
@@ -6779,7 +6968,7 @@
       "OriginalItemSpec": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/System.IO.MemoryMappedFiles.wasm"
     },
     {
-      "Identity": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/kuw6vbkybo-jqn70yrsfm.gz",
+      "Identity": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/kuw6vbkybo-zo4k14cxd2.gz",
       "SourceId": "TrainingSystem.Client",
       "SourceType": "Computed",
       "ContentRoot": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/",
@@ -6793,8 +6982,8 @@
       "RelatedAsset": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/blazor.boot.json",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "dx7jg28516",
-      "Integrity": "4cY1W8TOD1dqj9Q2A4UEv1NLCyc8VRg3TQjvSrvIbXA=",
+      "Fingerprint": "57m24gclyz",
+      "Integrity": "4aBQjXUxZdULsHz9H7vKcFYWUMcPnqNxV+7N91YIgVQ=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/blazor.boot.json"
@@ -7514,12 +7703,12 @@
       "OriginalItemSpec": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/System.Xml.Serialization.wasm"
     },
     {
-      "Identity": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/qndf4a0xzl-4rtyiocp2q.gz",
+      "Identity": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/qndf4a0xzl-o3nkgdgcuk.gz",
       "SourceId": "TrainingSystem.Client",
       "SourceType": "Computed",
       "ContentRoot": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/",
       "BasePath": "/",
-      "RelativePath": "_framework/TrainingSystem.Shared#[.{fingerprint=4rtyiocp2q}]!.pdb.gz",
+      "RelativePath": "_framework/TrainingSystem.Shared#[.{fingerprint=o3nkgdgcuk}]!.pdb.gz",
       "AssetKind": "Build",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -7528,8 +7717,8 @@
       "RelatedAsset": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/TrainingSystem.Shared.pdb",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "es0n5f7bwa",
-      "Integrity": "Qquxig8rBIrtHw2/HAWnz0GVU2DscXXOfzcjgJH6gxM=",
+      "Fingerprint": "t8cpb28ots",
+      "Integrity": "w0Lj7Gt6/B+MeP9W9CoOxUchYNjQXufr2Cp/xV/R9o8=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/TrainingSystem.Shared.pdb"
@@ -7955,12 +8144,12 @@
       "OriginalItemSpec": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/System.Xml.wasm"
     },
     {
-      "Identity": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/tju5lrff98-ieupe37lqy.gz",
+      "Identity": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/tju5lrff98-rf6zdw1wd8.gz",
       "SourceId": "TrainingSystem.Client",
       "SourceType": "Computed",
       "ContentRoot": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/",
       "BasePath": "/",
-      "RelativePath": "_framework/TrainingSystem.Client#[.{fingerprint=ieupe37lqy}]!.wasm.gz",
+      "RelativePath": "_framework/TrainingSystem.Client#[.{fingerprint=rf6zdw1wd8}]!.wasm.gz",
       "AssetKind": "Build",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -7969,8 +8158,8 @@
       "RelatedAsset": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/TrainingSystem.Client.wasm",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "nn14hd82qp",
-      "Integrity": "nRm8JCZcxP+qbAtwTFDNrCWrK54Gr/uOLoqbaNt35J4=",
+      "Fingerprint": "1vtx2p1y5f",
+      "Integrity": "kxSmbtPd4Jv8fIpQp4gEGZCJrufmy08oBzlLObPvBkM=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/TrainingSystem.Client.wasm"
@@ -7995,6 +8184,27 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/Microsoft.CSharp.wasm"
+    },
+    {
+      "Identity": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/tzxjg6is5z-du7z45fy1o.gz",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/Users/abdul-aleem/.nuget/packages/mudblazor/8.0.0/staticwebassets/MudBlazor.min.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "dbjzenetlr",
+      "Integrity": "ifYVatR4JDAFjVrwZ2W+WQs/H1Uz076h3EgmmQCAZGY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Users/abdul-aleem/.nuget/packages/mudblazor/8.0.0/staticwebassets/MudBlazor.min.css"
     },
     {
       "Identity": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/u4jrxmtxpn-fiastri9ki.gz",
@@ -8564,12 +8774,12 @@
       "OriginalItemSpec": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/System.Reflection.Emit.ILGeneration.wasm"
     },
     {
-      "Identity": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/yrqgylkeom-2vcyrbcith.gz",
+      "Identity": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/yrqgylkeom-lho8ku8b65.gz",
       "SourceId": "TrainingSystem.Client",
       "SourceType": "Computed",
       "ContentRoot": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/",
       "BasePath": "/",
-      "RelativePath": "_framework/TrainingSystem.Shared#[.{fingerprint=2vcyrbcith}]!.wasm.gz",
+      "RelativePath": "_framework/TrainingSystem.Shared#[.{fingerprint=lho8ku8b65}]!.wasm.gz",
       "AssetKind": "Build",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -8578,8 +8788,8 @@
       "RelatedAsset": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/TrainingSystem.Shared.wasm",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "9my0hu8ss8",
-      "Integrity": "v+do7nQ/gSqueh+aNgtpNvnVkiRf+2NcMmHrk9ksfbM=",
+      "Fingerprint": "wuxze5t45u",
+      "Integrity": "2JefovhR9l2VCW+noAQGRCaxHlvQzNSsH1nTCBKdIqw=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/TrainingSystem.Shared.wasm"
@@ -8755,6 +8965,370 @@
   ],
   "Endpoints": [
     {
+      "Route": "_content/MudBlazor/MudBlazor.min.css",
+      "AssetFile": "/Users/abdul-aleem/.nuget/packages/mudblazor/8.0.0/staticwebassets/MudBlazor.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "595248"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"i8XzH6dctsjbqV/MgK7hApUUdkZZ11RI0YiL+fzuUZY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 18 Jan 2025 17:29:14 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-i8XzH6dctsjbqV/MgK7hApUUdkZZ11RI0YiL+fzuUZY="
+        }
+      ]
+    },
+    {
+      "Route": "_content/MudBlazor/MudBlazor.min.css",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/tzxjg6is5z-du7z45fy1o.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000015421152"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "64845"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ifYVatR4JDAFjVrwZ2W+WQs/H1Uz076h3EgmmQCAZGY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 18 Jan 2025 17:29:14 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"i8XzH6dctsjbqV/MgK7hApUUdkZZ11RI0YiL+fzuUZY=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-i8XzH6dctsjbqV/MgK7hApUUdkZZ11RI0YiL+fzuUZY="
+        }
+      ]
+    },
+    {
+      "Route": "_content/MudBlazor/MudBlazor.min.css.gz",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/tzxjg6is5z-du7z45fy1o.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "64845"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ifYVatR4JDAFjVrwZ2W+WQs/H1Uz076h3EgmmQCAZGY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 18 Jan 2025 17:29:14 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ifYVatR4JDAFjVrwZ2W+WQs/H1Uz076h3EgmmQCAZGY="
+        }
+      ]
+    },
+    {
+      "Route": "_content/MudBlazor/MudBlazor.min.du7z45fy1o.css",
+      "AssetFile": "/Users/abdul-aleem/.nuget/packages/mudblazor/8.0.0/staticwebassets/MudBlazor.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "595248"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"i8XzH6dctsjbqV/MgK7hApUUdkZZ11RI0YiL+fzuUZY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 18 Jan 2025 17:29:14 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "du7z45fy1o"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-i8XzH6dctsjbqV/MgK7hApUUdkZZ11RI0YiL+fzuUZY="
+        },
+        {
+          "Name": "label",
+          "Value": "_content/MudBlazor/MudBlazor.min.css"
+        }
+      ]
+    },
+    {
+      "Route": "_content/MudBlazor/MudBlazor.min.js",
+      "AssetFile": "/Users/abdul-aleem/.nuget/packages/mudblazor/8.0.0/staticwebassets/MudBlazor.min.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "54333"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XvOTEdgrWj6UBIoc6ja7PecxNlvhU1P8k22QWXtsQAo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 18 Jan 2025 17:29:14 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-XvOTEdgrWj6UBIoc6ja7PecxNlvhU1P8k22QWXtsQAo="
+        }
+      ]
+    },
+    {
+      "Route": "_content/MudBlazor/MudBlazor.min.js",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/0wz98yz2xy-u9015k2po7.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000087596356"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11415"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WCZ8AU0kAcPfgs4A/MwBkIJxe6po0xnxpbU+cxiL6OI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 18 Jan 2025 17:29:14 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"XvOTEdgrWj6UBIoc6ja7PecxNlvhU1P8k22QWXtsQAo=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-XvOTEdgrWj6UBIoc6ja7PecxNlvhU1P8k22QWXtsQAo="
+        }
+      ]
+    },
+    {
+      "Route": "_content/MudBlazor/MudBlazor.min.js.gz",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/0wz98yz2xy-u9015k2po7.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11415"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WCZ8AU0kAcPfgs4A/MwBkIJxe6po0xnxpbU+cxiL6OI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 18 Jan 2025 17:29:14 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-WCZ8AU0kAcPfgs4A/MwBkIJxe6po0xnxpbU+cxiL6OI="
+        }
+      ]
+    },
+    {
+      "Route": "_content/MudBlazor/MudBlazor.min.u9015k2po7.js",
+      "AssetFile": "/Users/abdul-aleem/.nuget/packages/mudblazor/8.0.0/staticwebassets/MudBlazor.min.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "54333"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XvOTEdgrWj6UBIoc6ja7PecxNlvhU1P8k22QWXtsQAo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 18 Jan 2025 17:29:14 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "u9015k2po7"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-XvOTEdgrWj6UBIoc6ja7PecxNlvhU1P8k22QWXtsQAo="
+        },
+        {
+          "Name": "label",
+          "Value": "_content/MudBlazor/MudBlazor.min.js"
+        }
+      ]
+    },
+    {
       "Route": "_framework/blazor.boot.json",
       "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/blazor.boot.json",
       "Selectors": [],
@@ -8765,7 +9339,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "39271"
+          "Value": "39883"
         },
         {
           "Name": "Content-Type",
@@ -8773,11 +9347,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"FRQ0GmeCQab1xpvEo9DmacCKCOiQkd/zCPCLGAoQp5E=\""
+          "Value": "\"PXpNdt0ex1Dhrki+6RzFVYAX+82vX4KxQ23it+jUK0E=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 08 Dec 2025 18:24:37 GMT"
+          "Value": "Tue, 09 Dec 2025 18:07:19 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8787,18 +9361,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-FRQ0GmeCQab1xpvEo9DmacCKCOiQkd/zCPCLGAoQp5E="
+          "Value": "sha256-PXpNdt0ex1Dhrki+6RzFVYAX+82vX4KxQ23it+jUK0E="
         }
       ]
     },
     {
       "Route": "_framework/blazor.boot.json",
-      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/kuw6vbkybo-jqn70yrsfm.gz",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/kuw6vbkybo-zo4k14cxd2.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000079968013"
+          "Quality": "0.000078839483"
         }
       ],
       "ResponseHeaders": [
@@ -8808,15 +9382,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "12504"
+          "Value": "12683"
         },
         {
           "Name": "ETag",
-          "Value": "\"4cY1W8TOD1dqj9Q2A4UEv1NLCyc8VRg3TQjvSrvIbXA=\""
+          "Value": "\"4aBQjXUxZdULsHz9H7vKcFYWUMcPnqNxV+7N91YIgVQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 08 Dec 2025 18:23:40 GMT"
+          "Value": "Tue, 09 Dec 2025 18:06:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8836,19 +9410,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"FRQ0GmeCQab1xpvEo9DmacCKCOiQkd/zCPCLGAoQp5E=\""
+          "Value": "W/\"PXpNdt0ex1Dhrki+6RzFVYAX+82vX4KxQ23it+jUK0E=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-FRQ0GmeCQab1xpvEo9DmacCKCOiQkd/zCPCLGAoQp5E="
+          "Value": "sha256-PXpNdt0ex1Dhrki+6RzFVYAX+82vX4KxQ23it+jUK0E="
         }
       ]
     },
     {
       "Route": "_framework/blazor.boot.json.gz",
-      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/kuw6vbkybo-jqn70yrsfm.gz",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/kuw6vbkybo-zo4k14cxd2.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8857,7 +9431,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "12504"
+          "Value": "12683"
         },
         {
           "Name": "Content-Type",
@@ -8865,11 +9439,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4cY1W8TOD1dqj9Q2A4UEv1NLCyc8VRg3TQjvSrvIbXA=\""
+          "Value": "\"4aBQjXUxZdULsHz9H7vKcFYWUMcPnqNxV+7N91YIgVQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 08 Dec 2025 18:23:40 GMT"
+          "Value": "Tue, 09 Dec 2025 18:06:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8887,7 +9461,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-4cY1W8TOD1dqj9Q2A4UEv1NLCyc8VRg3TQjvSrvIbXA="
+          "Value": "sha256-4aBQjXUxZdULsHz9H7vKcFYWUMcPnqNxV+7N91YIgVQ="
         }
       ]
     },
@@ -16777,6 +17351,602 @@
       ]
     },
     {
+      "Route": "_framework/Microsoft.Extensions.Localization.Abstractions.o4jp2hcm79.wasm",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/Microsoft.Extensions.Localization.Abstractions.wasm",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8981"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/wasm"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"GJNjpp2mlMIYboBhzukWw5r2Z24PsB0E9Gj9VoTGKEI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Dec 2025 18:44:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "o4jp2hcm79"
+        },
+        {
+          "Name": "label",
+          "Value": "_framework/Microsoft.Extensions.Localization.Abstractions.wasm"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-GJNjpp2mlMIYboBhzukWw5r2Z24PsB0E9Gj9VoTGKEI="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/Microsoft.Extensions.Localization.Abstractions.o4jp2hcm79.wasm",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/ias1cswyo0-o4jp2hcm79.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000268889486"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3718"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tObQKdXSAyG1vCoCl0nNGFED1IvT2NN13pHMVsrrBUU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Dec 2025 18:44:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/wasm"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"GJNjpp2mlMIYboBhzukWw5r2Z24PsB0E9Gj9VoTGKEI=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "o4jp2hcm79"
+        },
+        {
+          "Name": "label",
+          "Value": "_framework/Microsoft.Extensions.Localization.Abstractions.wasm"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-GJNjpp2mlMIYboBhzukWw5r2Z24PsB0E9Gj9VoTGKEI="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/Microsoft.Extensions.Localization.Abstractions.o4jp2hcm79.wasm.gz",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/ias1cswyo0-o4jp2hcm79.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3718"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/wasm"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tObQKdXSAyG1vCoCl0nNGFED1IvT2NN13pHMVsrrBUU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Dec 2025 18:44:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "o4jp2hcm79"
+        },
+        {
+          "Name": "label",
+          "Value": "_framework/Microsoft.Extensions.Localization.Abstractions.wasm.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-tObQKdXSAyG1vCoCl0nNGFED1IvT2NN13pHMVsrrBUU="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/Microsoft.Extensions.Localization.Abstractions.wasm",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/Microsoft.Extensions.Localization.Abstractions.wasm",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8981"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/wasm"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"GJNjpp2mlMIYboBhzukWw5r2Z24PsB0E9Gj9VoTGKEI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Dec 2025 18:44:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-GJNjpp2mlMIYboBhzukWw5r2Z24PsB0E9Gj9VoTGKEI="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/Microsoft.Extensions.Localization.Abstractions.wasm",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/ias1cswyo0-o4jp2hcm79.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000268889486"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3718"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tObQKdXSAyG1vCoCl0nNGFED1IvT2NN13pHMVsrrBUU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Dec 2025 18:44:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/wasm"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"GJNjpp2mlMIYboBhzukWw5r2Z24PsB0E9Gj9VoTGKEI=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-GJNjpp2mlMIYboBhzukWw5r2Z24PsB0E9Gj9VoTGKEI="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/Microsoft.Extensions.Localization.Abstractions.wasm.gz",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/ias1cswyo0-o4jp2hcm79.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3718"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/wasm"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tObQKdXSAyG1vCoCl0nNGFED1IvT2NN13pHMVsrrBUU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Dec 2025 18:44:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-tObQKdXSAyG1vCoCl0nNGFED1IvT2NN13pHMVsrrBUU="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/Microsoft.Extensions.Localization.bvn14pws96.wasm",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/Microsoft.Extensions.Localization.wasm",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "21269"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/wasm"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"6UgMJoVZBfDdfzYR0aKVK6BWArxpXC1qiQDDjiXw/L4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Dec 2025 18:44:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bvn14pws96"
+        },
+        {
+          "Name": "label",
+          "Value": "_framework/Microsoft.Extensions.Localization.wasm"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-6UgMJoVZBfDdfzYR0aKVK6BWArxpXC1qiQDDjiXw/L4="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/Microsoft.Extensions.Localization.bvn14pws96.wasm",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/1k7f6pczdz-bvn14pws96.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000100806452"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9919"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5j8aQtcJRrJoCURQVqWie4VdbCVRCAXWoCODQfWj9bM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Dec 2025 18:44:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/wasm"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"6UgMJoVZBfDdfzYR0aKVK6BWArxpXC1qiQDDjiXw/L4=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bvn14pws96"
+        },
+        {
+          "Name": "label",
+          "Value": "_framework/Microsoft.Extensions.Localization.wasm"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-6UgMJoVZBfDdfzYR0aKVK6BWArxpXC1qiQDDjiXw/L4="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/Microsoft.Extensions.Localization.bvn14pws96.wasm.gz",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/1k7f6pczdz-bvn14pws96.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9919"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/wasm"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5j8aQtcJRrJoCURQVqWie4VdbCVRCAXWoCODQfWj9bM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Dec 2025 18:44:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bvn14pws96"
+        },
+        {
+          "Name": "label",
+          "Value": "_framework/Microsoft.Extensions.Localization.wasm.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-5j8aQtcJRrJoCURQVqWie4VdbCVRCAXWoCODQfWj9bM="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/Microsoft.Extensions.Localization.wasm",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/Microsoft.Extensions.Localization.wasm",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "21269"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/wasm"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"6UgMJoVZBfDdfzYR0aKVK6BWArxpXC1qiQDDjiXw/L4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Dec 2025 18:44:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-6UgMJoVZBfDdfzYR0aKVK6BWArxpXC1qiQDDjiXw/L4="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/Microsoft.Extensions.Localization.wasm",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/1k7f6pczdz-bvn14pws96.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000100806452"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9919"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5j8aQtcJRrJoCURQVqWie4VdbCVRCAXWoCODQfWj9bM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Dec 2025 18:44:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/wasm"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"6UgMJoVZBfDdfzYR0aKVK6BWArxpXC1qiQDDjiXw/L4=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-6UgMJoVZBfDdfzYR0aKVK6BWArxpXC1qiQDDjiXw/L4="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/Microsoft.Extensions.Localization.wasm.gz",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/1k7f6pczdz-bvn14pws96.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9919"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/wasm"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5j8aQtcJRrJoCURQVqWie4VdbCVRCAXWoCODQfWj9bM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Dec 2025 18:44:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-5j8aQtcJRrJoCURQVqWie4VdbCVRCAXWoCODQfWj9bM="
+        }
+      ]
+    },
+    {
       "Route": "_framework/Microsoft.Extensions.Logging.Abstractions.576c9qdvb8.wasm",
       "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/Microsoft.Extensions.Logging.Abstractions.wasm",
       "Selectors": [],
@@ -20051,6 +21221,304 @@
         {
           "Name": "integrity",
           "Value": "sha256-5DmxEGqgop0+eUITKTH4ITa16E7xz+hMubPiv+0xDqk="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/MudBlazor.0eq8xpu5ec.wasm",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/MudBlazor.wasm",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9244953"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/wasm"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"aONoa+It9lmbIcWFZuZwMlnZKG7BORJn8QjUcxhpl7o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Dec 2025 18:44:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "0eq8xpu5ec"
+        },
+        {
+          "Name": "label",
+          "Value": "_framework/MudBlazor.wasm"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-aONoa+It9lmbIcWFZuZwMlnZKG7BORJn8QjUcxhpl7o="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/MudBlazor.0eq8xpu5ec.wasm",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/dwbz3tonpx-0eq8xpu5ec.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000000501882"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1992499"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wvDenXUi2kSyYeIbjtfofvc7dLyR1HYfVAug3xn4QrU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Dec 2025 18:44:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/wasm"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"aONoa+It9lmbIcWFZuZwMlnZKG7BORJn8QjUcxhpl7o=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "0eq8xpu5ec"
+        },
+        {
+          "Name": "label",
+          "Value": "_framework/MudBlazor.wasm"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-aONoa+It9lmbIcWFZuZwMlnZKG7BORJn8QjUcxhpl7o="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/MudBlazor.0eq8xpu5ec.wasm.gz",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/dwbz3tonpx-0eq8xpu5ec.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1992499"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/wasm"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wvDenXUi2kSyYeIbjtfofvc7dLyR1HYfVAug3xn4QrU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Dec 2025 18:44:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "0eq8xpu5ec"
+        },
+        {
+          "Name": "label",
+          "Value": "_framework/MudBlazor.wasm.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-wvDenXUi2kSyYeIbjtfofvc7dLyR1HYfVAug3xn4QrU="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/MudBlazor.wasm",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/MudBlazor.wasm",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9244953"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/wasm"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"aONoa+It9lmbIcWFZuZwMlnZKG7BORJn8QjUcxhpl7o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Dec 2025 18:44:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-aONoa+It9lmbIcWFZuZwMlnZKG7BORJn8QjUcxhpl7o="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/MudBlazor.wasm",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/dwbz3tonpx-0eq8xpu5ec.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000000501882"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1992499"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wvDenXUi2kSyYeIbjtfofvc7dLyR1HYfVAug3xn4QrU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Dec 2025 18:44:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/wasm"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"aONoa+It9lmbIcWFZuZwMlnZKG7BORJn8QjUcxhpl7o=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-aONoa+It9lmbIcWFZuZwMlnZKG7BORJn8QjUcxhpl7o="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/MudBlazor.wasm.gz",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/dwbz3tonpx-0eq8xpu5ec.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1992499"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/wasm"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wvDenXUi2kSyYeIbjtfofvc7dLyR1HYfVAug3xn4QrU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Dec 2025 18:44:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-wvDenXUi2kSyYeIbjtfofvc7dLyR1HYfVAug3xn4QrU="
         }
       ]
     },
@@ -68331,7 +69799,7 @@
       ]
     },
     {
-      "Route": "_framework/TrainingSystem.Client.ffmmwdj1sn.pdb",
+      "Route": "_framework/TrainingSystem.Client.dwg52qftiq.pdb",
       "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/TrainingSystem.Client.pdb",
       "Selectors": [],
       "ResponseHeaders": [
@@ -68341,7 +69809,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "46976"
+          "Value": "81668"
         },
         {
           "Name": "Content-Type",
@@ -68349,11 +69817,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"C/+yAAsfAOw3kb0JH2qX7xXrrkDjzzUcJdvhLRspEjk=\""
+          "Value": "\"zf70PdSAjFFoVM6q+/OiQFHbhMlfUIe4qjQ+LI8l4DQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 08 Dec 2025 18:15:09 GMT"
+          "Value": "Tue, 09 Dec 2025 18:06:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -68363,7 +69831,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "ffmmwdj1sn"
+          "Value": "dwg52qftiq"
         },
         {
           "Name": "label",
@@ -68371,18 +69839,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-C/+yAAsfAOw3kb0JH2qX7xXrrkDjzzUcJdvhLRspEjk="
+          "Value": "sha256-zf70PdSAjFFoVM6q+/OiQFHbhMlfUIe4qjQ+LI8l4DQ="
         }
       ]
     },
     {
-      "Route": "_framework/TrainingSystem.Client.ffmmwdj1sn.pdb",
-      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/37plpla4pc-ffmmwdj1sn.gz",
+      "Route": "_framework/TrainingSystem.Client.dwg52qftiq.pdb",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/37plpla4pc-dwg52qftiq.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000028271748"
+          "Quality": "0.000015244367"
         }
       ],
       "ResponseHeaders": [
@@ -68392,15 +69860,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "35370"
+          "Value": "65597"
         },
         {
           "Name": "ETag",
-          "Value": "\"//6HnX7dhWdyEkUqgxWZCkc2pDoyxfBgD8h4eDsAU1g=\""
+          "Value": "\"XEYYjEpvNlfRUQ94csb+c3Dr4tN4rl/Akr9dwvrWWDY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 08 Dec 2025 18:15:10 GMT"
+          "Value": "Tue, 09 Dec 2025 18:06:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -68420,13 +69888,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"C/+yAAsfAOw3kb0JH2qX7xXrrkDjzzUcJdvhLRspEjk=\""
+          "Value": "W/\"zf70PdSAjFFoVM6q+/OiQFHbhMlfUIe4qjQ+LI8l4DQ=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "ffmmwdj1sn"
+          "Value": "dwg52qftiq"
         },
         {
           "Name": "label",
@@ -68434,13 +69902,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-C/+yAAsfAOw3kb0JH2qX7xXrrkDjzzUcJdvhLRspEjk="
+          "Value": "sha256-zf70PdSAjFFoVM6q+/OiQFHbhMlfUIe4qjQ+LI8l4DQ="
         }
       ]
     },
     {
-      "Route": "_framework/TrainingSystem.Client.ffmmwdj1sn.pdb.gz",
-      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/37plpla4pc-ffmmwdj1sn.gz",
+      "Route": "_framework/TrainingSystem.Client.dwg52qftiq.pdb.gz",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/37plpla4pc-dwg52qftiq.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -68449,7 +69917,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "35370"
+          "Value": "65597"
         },
         {
           "Name": "Content-Type",
@@ -68457,11 +69925,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"//6HnX7dhWdyEkUqgxWZCkc2pDoyxfBgD8h4eDsAU1g=\""
+          "Value": "\"XEYYjEpvNlfRUQ94csb+c3Dr4tN4rl/Akr9dwvrWWDY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 08 Dec 2025 18:15:10 GMT"
+          "Value": "Tue, 09 Dec 2025 18:06:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -68479,7 +69947,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "ffmmwdj1sn"
+          "Value": "dwg52qftiq"
         },
         {
           "Name": "label",
@@ -68487,168 +69955,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-//6HnX7dhWdyEkUqgxWZCkc2pDoyxfBgD8h4eDsAU1g="
-        }
-      ]
-    },
-    {
-      "Route": "_framework/TrainingSystem.Client.ieupe37lqy.wasm",
-      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/TrainingSystem.Client.wasm",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "72981"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/wasm"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"KtD/w2OBreRIxyDgowV70nzj4zrFqL/Pc2QmzUxqU9w=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 08 Dec 2025 18:15:09 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "ieupe37lqy"
-        },
-        {
-          "Name": "label",
-          "Value": "_framework/TrainingSystem.Client.wasm"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-KtD/w2OBreRIxyDgowV70nzj4zrFqL/Pc2QmzUxqU9w="
-        }
-      ]
-    },
-    {
-      "Route": "_framework/TrainingSystem.Client.ieupe37lqy.wasm",
-      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/tju5lrff98-ieupe37lqy.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000039654215"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "25217"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"nRm8JCZcxP+qbAtwTFDNrCWrK54Gr/uOLoqbaNt35J4=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 08 Dec 2025 18:15:10 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/wasm"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"KtD/w2OBreRIxyDgowV70nzj4zrFqL/Pc2QmzUxqU9w=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "ieupe37lqy"
-        },
-        {
-          "Name": "label",
-          "Value": "_framework/TrainingSystem.Client.wasm"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-KtD/w2OBreRIxyDgowV70nzj4zrFqL/Pc2QmzUxqU9w="
-        }
-      ]
-    },
-    {
-      "Route": "_framework/TrainingSystem.Client.ieupe37lqy.wasm.gz",
-      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/tju5lrff98-ieupe37lqy.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "25217"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/wasm"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"nRm8JCZcxP+qbAtwTFDNrCWrK54Gr/uOLoqbaNt35J4=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 08 Dec 2025 18:15:10 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "ieupe37lqy"
-        },
-        {
-          "Name": "label",
-          "Value": "_framework/TrainingSystem.Client.wasm.gz"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-nRm8JCZcxP+qbAtwTFDNrCWrK54Gr/uOLoqbaNt35J4="
+          "Value": "sha256-XEYYjEpvNlfRUQ94csb+c3Dr4tN4rl/Akr9dwvrWWDY="
         }
       ]
     },
@@ -68663,7 +69970,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "46976"
+          "Value": "81668"
         },
         {
           "Name": "Content-Type",
@@ -68671,11 +69978,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"C/+yAAsfAOw3kb0JH2qX7xXrrkDjzzUcJdvhLRspEjk=\""
+          "Value": "\"zf70PdSAjFFoVM6q+/OiQFHbhMlfUIe4qjQ+LI8l4DQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 08 Dec 2025 18:15:09 GMT"
+          "Value": "Tue, 09 Dec 2025 18:06:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -68685,18 +69992,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-C/+yAAsfAOw3kb0JH2qX7xXrrkDjzzUcJdvhLRspEjk="
+          "Value": "sha256-zf70PdSAjFFoVM6q+/OiQFHbhMlfUIe4qjQ+LI8l4DQ="
         }
       ]
     },
     {
       "Route": "_framework/TrainingSystem.Client.pdb",
-      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/37plpla4pc-ffmmwdj1sn.gz",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/37plpla4pc-dwg52qftiq.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000028271748"
+          "Quality": "0.000015244367"
         }
       ],
       "ResponseHeaders": [
@@ -68706,15 +70013,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "35370"
+          "Value": "65597"
         },
         {
           "Name": "ETag",
-          "Value": "\"//6HnX7dhWdyEkUqgxWZCkc2pDoyxfBgD8h4eDsAU1g=\""
+          "Value": "\"XEYYjEpvNlfRUQ94csb+c3Dr4tN4rl/Akr9dwvrWWDY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 08 Dec 2025 18:15:10 GMT"
+          "Value": "Tue, 09 Dec 2025 18:06:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -68734,19 +70041,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"C/+yAAsfAOw3kb0JH2qX7xXrrkDjzzUcJdvhLRspEjk=\""
+          "Value": "W/\"zf70PdSAjFFoVM6q+/OiQFHbhMlfUIe4qjQ+LI8l4DQ=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-C/+yAAsfAOw3kb0JH2qX7xXrrkDjzzUcJdvhLRspEjk="
+          "Value": "sha256-zf70PdSAjFFoVM6q+/OiQFHbhMlfUIe4qjQ+LI8l4DQ="
         }
       ]
     },
     {
       "Route": "_framework/TrainingSystem.Client.pdb.gz",
-      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/37plpla4pc-ffmmwdj1sn.gz",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/37plpla4pc-dwg52qftiq.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -68755,7 +70062,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "35370"
+          "Value": "65597"
         },
         {
           "Name": "Content-Type",
@@ -68763,11 +70070,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"//6HnX7dhWdyEkUqgxWZCkc2pDoyxfBgD8h4eDsAU1g=\""
+          "Value": "\"XEYYjEpvNlfRUQ94csb+c3Dr4tN4rl/Akr9dwvrWWDY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 08 Dec 2025 18:15:10 GMT"
+          "Value": "Tue, 09 Dec 2025 18:06:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -68785,7 +70092,168 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-//6HnX7dhWdyEkUqgxWZCkc2pDoyxfBgD8h4eDsAU1g="
+          "Value": "sha256-XEYYjEpvNlfRUQ94csb+c3Dr4tN4rl/Akr9dwvrWWDY="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/TrainingSystem.Client.rf6zdw1wd8.wasm",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/TrainingSystem.Client.wasm",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "126229"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/wasm"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qTcRIY6wsNewfLy3s+9CcVHrOdaxc07SM/rkuiK+bXM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 18:06:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "rf6zdw1wd8"
+        },
+        {
+          "Name": "label",
+          "Value": "_framework/TrainingSystem.Client.wasm"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-qTcRIY6wsNewfLy3s+9CcVHrOdaxc07SM/rkuiK+bXM="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/TrainingSystem.Client.rf6zdw1wd8.wasm",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/tju5lrff98-rf6zdw1wd8.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000024018254"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "41634"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"kxSmbtPd4Jv8fIpQp4gEGZCJrufmy08oBzlLObPvBkM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 18:06:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/wasm"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"qTcRIY6wsNewfLy3s+9CcVHrOdaxc07SM/rkuiK+bXM=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "rf6zdw1wd8"
+        },
+        {
+          "Name": "label",
+          "Value": "_framework/TrainingSystem.Client.wasm"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-qTcRIY6wsNewfLy3s+9CcVHrOdaxc07SM/rkuiK+bXM="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/TrainingSystem.Client.rf6zdw1wd8.wasm.gz",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/tju5lrff98-rf6zdw1wd8.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "41634"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/wasm"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"kxSmbtPd4Jv8fIpQp4gEGZCJrufmy08oBzlLObPvBkM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Dec 2025 18:06:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "rf6zdw1wd8"
+        },
+        {
+          "Name": "label",
+          "Value": "_framework/TrainingSystem.Client.wasm.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-kxSmbtPd4Jv8fIpQp4gEGZCJrufmy08oBzlLObPvBkM="
         }
       ]
     },
@@ -68800,7 +70268,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "72981"
+          "Value": "126229"
         },
         {
           "Name": "Content-Type",
@@ -68808,11 +70276,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"KtD/w2OBreRIxyDgowV70nzj4zrFqL/Pc2QmzUxqU9w=\""
+          "Value": "\"qTcRIY6wsNewfLy3s+9CcVHrOdaxc07SM/rkuiK+bXM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 08 Dec 2025 18:15:09 GMT"
+          "Value": "Tue, 09 Dec 2025 18:06:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -68822,18 +70290,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-KtD/w2OBreRIxyDgowV70nzj4zrFqL/Pc2QmzUxqU9w="
+          "Value": "sha256-qTcRIY6wsNewfLy3s+9CcVHrOdaxc07SM/rkuiK+bXM="
         }
       ]
     },
     {
       "Route": "_framework/TrainingSystem.Client.wasm",
-      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/tju5lrff98-ieupe37lqy.gz",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/tju5lrff98-rf6zdw1wd8.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000039654215"
+          "Quality": "0.000024018254"
         }
       ],
       "ResponseHeaders": [
@@ -68843,15 +70311,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "25217"
+          "Value": "41634"
         },
         {
           "Name": "ETag",
-          "Value": "\"nRm8JCZcxP+qbAtwTFDNrCWrK54Gr/uOLoqbaNt35J4=\""
+          "Value": "\"kxSmbtPd4Jv8fIpQp4gEGZCJrufmy08oBzlLObPvBkM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 08 Dec 2025 18:15:10 GMT"
+          "Value": "Tue, 09 Dec 2025 18:06:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -68871,19 +70339,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"KtD/w2OBreRIxyDgowV70nzj4zrFqL/Pc2QmzUxqU9w=\""
+          "Value": "W/\"qTcRIY6wsNewfLy3s+9CcVHrOdaxc07SM/rkuiK+bXM=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-KtD/w2OBreRIxyDgowV70nzj4zrFqL/Pc2QmzUxqU9w="
+          "Value": "sha256-qTcRIY6wsNewfLy3s+9CcVHrOdaxc07SM/rkuiK+bXM="
         }
       ]
     },
     {
       "Route": "_framework/TrainingSystem.Client.wasm.gz",
-      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/tju5lrff98-ieupe37lqy.gz",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/tju5lrff98-rf6zdw1wd8.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -68892,7 +70360,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "25217"
+          "Value": "41634"
         },
         {
           "Name": "Content-Type",
@@ -68900,11 +70368,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"nRm8JCZcxP+qbAtwTFDNrCWrK54Gr/uOLoqbaNt35J4=\""
+          "Value": "\"kxSmbtPd4Jv8fIpQp4gEGZCJrufmy08oBzlLObPvBkM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 08 Dec 2025 18:15:10 GMT"
+          "Value": "Tue, 09 Dec 2025 18:06:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -68922,12 +70390,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-nRm8JCZcxP+qbAtwTFDNrCWrK54Gr/uOLoqbaNt35J4="
+          "Value": "sha256-kxSmbtPd4Jv8fIpQp4gEGZCJrufmy08oBzlLObPvBkM="
         }
       ]
     },
     {
-      "Route": "_framework/TrainingSystem.Shared.2vcyrbcith.wasm",
+      "Route": "_framework/TrainingSystem.Shared.lho8ku8b65.wasm",
       "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/TrainingSystem.Shared.wasm",
       "Selectors": [],
       "ResponseHeaders": [
@@ -68937,7 +70405,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "8981"
+          "Value": "14101"
         },
         {
           "Name": "Content-Type",
@@ -68945,11 +70413,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"YkO4l+LgK1WCObaUswYMXdaWzuabVKDSAJ/9VVj1zbQ=\""
+          "Value": "\"+TnlKxFrjTo+txJOFmOffDG6H5WIzDso3J+rQMAfUxA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 08 Dec 2025 18:15:09 GMT"
+          "Value": "Tue, 09 Dec 2025 18:01:23 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -68959,7 +70427,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "2vcyrbcith"
+          "Value": "lho8ku8b65"
         },
         {
           "Name": "label",
@@ -68967,18 +70435,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-YkO4l+LgK1WCObaUswYMXdaWzuabVKDSAJ/9VVj1zbQ="
+          "Value": "sha256-+TnlKxFrjTo+txJOFmOffDG6H5WIzDso3J+rQMAfUxA="
         }
       ]
     },
     {
-      "Route": "_framework/TrainingSystem.Shared.2vcyrbcith.wasm",
-      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/yrqgylkeom-2vcyrbcith.gz",
+      "Route": "_framework/TrainingSystem.Shared.lho8ku8b65.wasm",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/yrqgylkeom-lho8ku8b65.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000278396437"
+          "Quality": "0.000179243592"
         }
       ],
       "ResponseHeaders": [
@@ -68988,15 +70456,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3591"
+          "Value": "5578"
         },
         {
           "Name": "ETag",
-          "Value": "\"v+do7nQ/gSqueh+aNgtpNvnVkiRf+2NcMmHrk9ksfbM=\""
+          "Value": "\"2JefovhR9l2VCW+noAQGRCaxHlvQzNSsH1nTCBKdIqw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 08 Dec 2025 18:15:10 GMT"
+          "Value": "Tue, 09 Dec 2025 18:01:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -69016,13 +70484,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"YkO4l+LgK1WCObaUswYMXdaWzuabVKDSAJ/9VVj1zbQ=\""
+          "Value": "W/\"+TnlKxFrjTo+txJOFmOffDG6H5WIzDso3J+rQMAfUxA=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "2vcyrbcith"
+          "Value": "lho8ku8b65"
         },
         {
           "Name": "label",
@@ -69030,13 +70498,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-YkO4l+LgK1WCObaUswYMXdaWzuabVKDSAJ/9VVj1zbQ="
+          "Value": "sha256-+TnlKxFrjTo+txJOFmOffDG6H5WIzDso3J+rQMAfUxA="
         }
       ]
     },
     {
-      "Route": "_framework/TrainingSystem.Shared.2vcyrbcith.wasm.gz",
-      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/yrqgylkeom-2vcyrbcith.gz",
+      "Route": "_framework/TrainingSystem.Shared.lho8ku8b65.wasm.gz",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/yrqgylkeom-lho8ku8b65.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -69045,7 +70513,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3591"
+          "Value": "5578"
         },
         {
           "Name": "Content-Type",
@@ -69053,11 +70521,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"v+do7nQ/gSqueh+aNgtpNvnVkiRf+2NcMmHrk9ksfbM=\""
+          "Value": "\"2JefovhR9l2VCW+noAQGRCaxHlvQzNSsH1nTCBKdIqw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 08 Dec 2025 18:15:10 GMT"
+          "Value": "Tue, 09 Dec 2025 18:01:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -69075,7 +70543,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "2vcyrbcith"
+          "Value": "lho8ku8b65"
         },
         {
           "Name": "label",
@@ -69083,12 +70551,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-v+do7nQ/gSqueh+aNgtpNvnVkiRf+2NcMmHrk9ksfbM="
+          "Value": "sha256-2JefovhR9l2VCW+noAQGRCaxHlvQzNSsH1nTCBKdIqw="
         }
       ]
     },
     {
-      "Route": "_framework/TrainingSystem.Shared.4rtyiocp2q.pdb",
+      "Route": "_framework/TrainingSystem.Shared.o3nkgdgcuk.pdb",
       "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/bin/Debug/net9.0/wwwroot/_framework/TrainingSystem.Shared.pdb",
       "Selectors": [],
       "ResponseHeaders": [
@@ -69098,7 +70566,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "12672"
+          "Value": "15460"
         },
         {
           "Name": "Content-Type",
@@ -69106,11 +70574,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4IKHICcy+QbCUmEDTL0eqPwRDcVPcRf15hOS0/Nm2v0=\""
+          "Value": "\"9BXdGbvYKqF0d0qaoHUzW/w61GWu/l5EmgcQE7bhrmU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 08 Dec 2025 18:15:09 GMT"
+          "Value": "Tue, 09 Dec 2025 18:01:22 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -69120,7 +70588,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "4rtyiocp2q"
+          "Value": "o3nkgdgcuk"
         },
         {
           "Name": "label",
@@ -69128,18 +70596,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-4IKHICcy+QbCUmEDTL0eqPwRDcVPcRf15hOS0/Nm2v0="
+          "Value": "sha256-9BXdGbvYKqF0d0qaoHUzW/w61GWu/l5EmgcQE7bhrmU="
         }
       ]
     },
     {
-      "Route": "_framework/TrainingSystem.Shared.4rtyiocp2q.pdb",
-      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/qndf4a0xzl-4rtyiocp2q.gz",
+      "Route": "_framework/TrainingSystem.Shared.o3nkgdgcuk.pdb",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/qndf4a0xzl-o3nkgdgcuk.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000142877554"
+          "Quality": "0.000118455342"
         }
       ],
       "ResponseHeaders": [
@@ -69149,15 +70617,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6998"
+          "Value": "8441"
         },
         {
           "Name": "ETag",
-          "Value": "\"Qquxig8rBIrtHw2/HAWnz0GVU2DscXXOfzcjgJH6gxM=\""
+          "Value": "\"w0Lj7Gt6/B+MeP9W9CoOxUchYNjQXufr2Cp/xV/R9o8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 08 Dec 2025 18:15:10 GMT"
+          "Value": "Tue, 09 Dec 2025 18:01:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -69177,13 +70645,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"4IKHICcy+QbCUmEDTL0eqPwRDcVPcRf15hOS0/Nm2v0=\""
+          "Value": "W/\"9BXdGbvYKqF0d0qaoHUzW/w61GWu/l5EmgcQE7bhrmU=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "4rtyiocp2q"
+          "Value": "o3nkgdgcuk"
         },
         {
           "Name": "label",
@@ -69191,13 +70659,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-4IKHICcy+QbCUmEDTL0eqPwRDcVPcRf15hOS0/Nm2v0="
+          "Value": "sha256-9BXdGbvYKqF0d0qaoHUzW/w61GWu/l5EmgcQE7bhrmU="
         }
       ]
     },
     {
-      "Route": "_framework/TrainingSystem.Shared.4rtyiocp2q.pdb.gz",
-      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/qndf4a0xzl-4rtyiocp2q.gz",
+      "Route": "_framework/TrainingSystem.Shared.o3nkgdgcuk.pdb.gz",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/qndf4a0xzl-o3nkgdgcuk.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -69206,7 +70674,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6998"
+          "Value": "8441"
         },
         {
           "Name": "Content-Type",
@@ -69214,11 +70682,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Qquxig8rBIrtHw2/HAWnz0GVU2DscXXOfzcjgJH6gxM=\""
+          "Value": "\"w0Lj7Gt6/B+MeP9W9CoOxUchYNjQXufr2Cp/xV/R9o8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 08 Dec 2025 18:15:10 GMT"
+          "Value": "Tue, 09 Dec 2025 18:01:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -69236,7 +70704,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "4rtyiocp2q"
+          "Value": "o3nkgdgcuk"
         },
         {
           "Name": "label",
@@ -69244,7 +70712,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Qquxig8rBIrtHw2/HAWnz0GVU2DscXXOfzcjgJH6gxM="
+          "Value": "sha256-w0Lj7Gt6/B+MeP9W9CoOxUchYNjQXufr2Cp/xV/R9o8="
         }
       ]
     },
@@ -69259,7 +70727,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "12672"
+          "Value": "15460"
         },
         {
           "Name": "Content-Type",
@@ -69267,11 +70735,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4IKHICcy+QbCUmEDTL0eqPwRDcVPcRf15hOS0/Nm2v0=\""
+          "Value": "\"9BXdGbvYKqF0d0qaoHUzW/w61GWu/l5EmgcQE7bhrmU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 08 Dec 2025 18:15:09 GMT"
+          "Value": "Tue, 09 Dec 2025 18:01:22 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -69281,18 +70749,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-4IKHICcy+QbCUmEDTL0eqPwRDcVPcRf15hOS0/Nm2v0="
+          "Value": "sha256-9BXdGbvYKqF0d0qaoHUzW/w61GWu/l5EmgcQE7bhrmU="
         }
       ]
     },
     {
       "Route": "_framework/TrainingSystem.Shared.pdb",
-      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/qndf4a0xzl-4rtyiocp2q.gz",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/qndf4a0xzl-o3nkgdgcuk.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000142877554"
+          "Quality": "0.000118455342"
         }
       ],
       "ResponseHeaders": [
@@ -69302,15 +70770,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6998"
+          "Value": "8441"
         },
         {
           "Name": "ETag",
-          "Value": "\"Qquxig8rBIrtHw2/HAWnz0GVU2DscXXOfzcjgJH6gxM=\""
+          "Value": "\"w0Lj7Gt6/B+MeP9W9CoOxUchYNjQXufr2Cp/xV/R9o8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 08 Dec 2025 18:15:10 GMT"
+          "Value": "Tue, 09 Dec 2025 18:01:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -69330,19 +70798,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"4IKHICcy+QbCUmEDTL0eqPwRDcVPcRf15hOS0/Nm2v0=\""
+          "Value": "W/\"9BXdGbvYKqF0d0qaoHUzW/w61GWu/l5EmgcQE7bhrmU=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-4IKHICcy+QbCUmEDTL0eqPwRDcVPcRf15hOS0/Nm2v0="
+          "Value": "sha256-9BXdGbvYKqF0d0qaoHUzW/w61GWu/l5EmgcQE7bhrmU="
         }
       ]
     },
     {
       "Route": "_framework/TrainingSystem.Shared.pdb.gz",
-      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/qndf4a0xzl-4rtyiocp2q.gz",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/qndf4a0xzl-o3nkgdgcuk.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -69351,7 +70819,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6998"
+          "Value": "8441"
         },
         {
           "Name": "Content-Type",
@@ -69359,11 +70827,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Qquxig8rBIrtHw2/HAWnz0GVU2DscXXOfzcjgJH6gxM=\""
+          "Value": "\"w0Lj7Gt6/B+MeP9W9CoOxUchYNjQXufr2Cp/xV/R9o8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 08 Dec 2025 18:15:10 GMT"
+          "Value": "Tue, 09 Dec 2025 18:01:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -69381,7 +70849,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Qquxig8rBIrtHw2/HAWnz0GVU2DscXXOfzcjgJH6gxM="
+          "Value": "sha256-w0Lj7Gt6/B+MeP9W9CoOxUchYNjQXufr2Cp/xV/R9o8="
         }
       ]
     },
@@ -69396,7 +70864,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "8981"
+          "Value": "14101"
         },
         {
           "Name": "Content-Type",
@@ -69404,11 +70872,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"YkO4l+LgK1WCObaUswYMXdaWzuabVKDSAJ/9VVj1zbQ=\""
+          "Value": "\"+TnlKxFrjTo+txJOFmOffDG6H5WIzDso3J+rQMAfUxA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 08 Dec 2025 18:15:09 GMT"
+          "Value": "Tue, 09 Dec 2025 18:01:23 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -69418,18 +70886,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-YkO4l+LgK1WCObaUswYMXdaWzuabVKDSAJ/9VVj1zbQ="
+          "Value": "sha256-+TnlKxFrjTo+txJOFmOffDG6H5WIzDso3J+rQMAfUxA="
         }
       ]
     },
     {
       "Route": "_framework/TrainingSystem.Shared.wasm",
-      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/yrqgylkeom-2vcyrbcith.gz",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/yrqgylkeom-lho8ku8b65.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000278396437"
+          "Quality": "0.000179243592"
         }
       ],
       "ResponseHeaders": [
@@ -69439,15 +70907,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3591"
+          "Value": "5578"
         },
         {
           "Name": "ETag",
-          "Value": "\"v+do7nQ/gSqueh+aNgtpNvnVkiRf+2NcMmHrk9ksfbM=\""
+          "Value": "\"2JefovhR9l2VCW+noAQGRCaxHlvQzNSsH1nTCBKdIqw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 08 Dec 2025 18:15:10 GMT"
+          "Value": "Tue, 09 Dec 2025 18:01:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -69467,19 +70935,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"YkO4l+LgK1WCObaUswYMXdaWzuabVKDSAJ/9VVj1zbQ=\""
+          "Value": "W/\"+TnlKxFrjTo+txJOFmOffDG6H5WIzDso3J+rQMAfUxA=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-YkO4l+LgK1WCObaUswYMXdaWzuabVKDSAJ/9VVj1zbQ="
+          "Value": "sha256-+TnlKxFrjTo+txJOFmOffDG6H5WIzDso3J+rQMAfUxA="
         }
       ]
     },
     {
       "Route": "_framework/TrainingSystem.Shared.wasm.gz",
-      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/yrqgylkeom-2vcyrbcith.gz",
+      "AssetFile": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/obj/Debug/net9.0/compressed/yrqgylkeom-lho8ku8b65.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -69488,7 +70956,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3591"
+          "Value": "5578"
         },
         {
           "Name": "Content-Type",
@@ -69496,11 +70964,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"v+do7nQ/gSqueh+aNgtpNvnVkiRf+2NcMmHrk9ksfbM=\""
+          "Value": "\"2JefovhR9l2VCW+noAQGRCaxHlvQzNSsH1nTCBKdIqw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 08 Dec 2025 18:15:10 GMT"
+          "Value": "Tue, 09 Dec 2025 18:01:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -69518,7 +70986,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-v+do7nQ/gSqueh+aNgtpNvnVkiRf+2NcMmHrk9ksfbM="
+          "Value": "sha256-2JefovhR9l2VCW+noAQGRCaxHlvQzNSsH1nTCBKdIqw="
         }
       ]
     },

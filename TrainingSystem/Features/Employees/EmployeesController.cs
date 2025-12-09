@@ -27,7 +27,8 @@ public class EmployeesController : ControllerBase
     {
         _context.Employees.Add(employee);
         await _context.SaveChangesAsync();
-        return CreatedAtAction(nameof(GetEmployees), new { id = employee.Id }, employee);
+        await _context.SaveChangesAsync();
+        return Ok(employee);
     }
 
     [HttpGet("{id}")]

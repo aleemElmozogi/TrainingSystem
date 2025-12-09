@@ -9,3 +9,4 @@
 /Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Shared/obj/Debug/net9.0/refint/TrainingSystem.Shared.dll
 /Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Shared/obj/Debug/net9.0/TrainingSystem.Shared.pdb
 /Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Shared/obj/Debug/net9.0/ref/TrainingSystem.Shared.dll
+/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Shared/obj/Debug/net9.0/TrainingSystem.Shared.sourcelink.json

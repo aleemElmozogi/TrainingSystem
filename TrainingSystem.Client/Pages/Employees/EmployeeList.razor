@@ -1,69 +1,94 @@
 @page "/employees"
 @inject IClientService ClientService
 @inject NavigationManager Navigation
+@inject IDialogService DialogService
+@inject ISnackbar Snackbar
 
 <PageTitle>الموظفين</PageTitle>
 
-<div class="d-flex justify-content-between align-items-center mb-3">
-    <h1>قائمة الموظفين</h1>
-    <a href="employees/add" class="btn btn-primary">إضافة موظف</a>
-</div>
+<MudContainer MaxWidth="MaxWidth.Large">
+    <div class="d-flex justify-space-between align-center mb-4">
+         <MudText Typo="Typo.h4">قائمة الموظفين</MudText>
+         <MudButton Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.Filled.Add" Href="employees/add">إضافة موظف</MudButton>
+    </div>
 
-@if (employees == null)
-{
-    <p><em>جاري التحميل...</em></p>
-}
-else
-{
-    <table class="table table-striped table-hover">
-        <thead>
-            <tr>
-                <th>المعرف</th>
-                <th>الاسم الكامل</th>
-                <th>القسم</th>
-                <th>المسمى الوظيفي</th>
-                <th>إجراءات</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var emp in employees)
-            {
-                <tr>
-                    <td>@emp.Id</td>
-                    <td>@emp.FullName</td>
-                    <td>@emp.Department</td>
-                    <td>@emp.JobTitle</td>
-                    <td>
-                        <a href="employees/edit/@emp.Id" class="btn btn-sm btn-warning">تعديل</a>
-                        <button class="btn btn-sm btn-danger" @onclick="() => DeleteEmployee(emp.Id)">حذف</button>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
-
-@inject IJSRuntime JS
+    @if (employees == null)
+    {
+        <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+    }
+    else
+    {
+        <MudTable Items="@employees" Hover="true" Breakpoint="Breakpoint.Sm" Elevation="0" Outlined="true" Striped="true" Filter="new Func<Employee,bool>(FilterFunc)">
+            <ToolBarContent>
+                <MudTextField @bind-Value="searchString" Placeholder="بحث..." Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+            </ToolBarContent>
+            <HeaderContent>
+                <MudTh>الاسم الكامل</MudTh>
+                <MudTh>رقم التوظيف</MudTh>
+                <MudTh>البريد الإلكتروني</MudTh>
+                <MudTh>القسم</MudTh>
+                <MudTh>المسمى الوظيفي</MudTh>
+                <MudTh Style="text-align:end">الإجراءات</MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd DataLabel="الاسم">
+                    <div class="d-flex align-center">
+                        <MudAvatar Color="Color.Primary" Size="Size.Small" Class="ml-2">@context.FullName.FirstOrDefault()</MudAvatar>
+                        <MudText Typo="Typo.body2" Style="font-weight: 500;">@context.FullName</MudText>
+                    </div>
+                </MudTd>
+                <MudTd DataLabel="رقم التوظيف">@context.EmploymentNumber</MudTd>
+                <MudTd DataLabel="البريد">@context.Email</MudTd>
+                <MudTd DataLabel="القسم">@context.Department</MudTd>
+                <MudTd DataLabel="المسمى">
+                    <MudChip T="string" Size="Size.Small" Color="Color.Surface" Variant="Variant.Outlined">@context.JobTitle</MudChip>
+                </MudTd>
+                <MudTd DataLabel="الإجراءات" Style="text-align:end">
+                    <MudIconButton Icon="@Icons.Material.Filled.Edit" Size="Size.Small" Color="Color.Default" Href="@($"employees/edit/{context.Id}")" />
+                    <MudIconButton Icon="@Icons.Material.Filled.Delete" Size="Size.Small" Color="Color.Error" OnClick="@(() => DeleteEmployee(context.Id))" />
+                </MudTd>
+            </RowTemplate>
+             <PagerContent>
+                <MudTablePager />
+            </PagerContent>
+        </MudTable>
+    }
+</MudContainer>
 
 @code {
     private List<Employee>? employees;
+    private string searchString = "";
 
     protected override async Task OnInitializedAsync()
-    {
-        await LoadEmployees();
-    }
-
-    private async Task LoadEmployees()
     {
         employees = await ClientService.GetEmployeesAsync();
     }
 
+    private bool FilterFunc(Employee element) => FilterFunc(element, searchString);
+
+    private bool FilterFunc(Employee element, string searchString)
+    {
+        if (string.IsNullOrWhiteSpace(searchString))
+            return true;
+        if (element.FullName.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        if (element.Department?.Contains(searchString, StringComparison.OrdinalIgnoreCase) == true)
+            return true;
+        return false;
+    }
+
     private async Task DeleteEmployee(int id)
     {
-        if (await JS.InvokeAsync<bool>("confirm", "هل أنت متأكد من حذف هذا الموظف؟"))
+        bool? result = await DialogService.ShowMessageBox(
+            "تأكيد الحذف", 
+            "هل أنت متأكد من حذف هذا الموظف؟", 
+            yesText:"حذف", cancelText:"إلغاء");
+
+        if (result == true)
         {
             await ClientService.DeleteEmployeeAsync(id);
-            await LoadEmployees();
+            employees = await ClientService.GetEmployeesAsync();
+            Snackbar.Add("تم الحذف بنجاح", Severity.Success);
         }
     }
 }

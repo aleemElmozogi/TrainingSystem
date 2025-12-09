@@ -27,7 +27,8 @@ public class CoursesController : ControllerBase
     {
         _context.Courses.Add(course);
         await _context.SaveChangesAsync();
-        return CreatedAtAction(nameof(GetCourses), new { id = course.Id }, course);
+        await _context.SaveChangesAsync();
+        return Ok(course);
     }
 
     [HttpGet("{id}")]

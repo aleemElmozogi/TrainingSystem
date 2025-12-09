@@ -1,70 +1,110 @@
 ﻿@page "/"
-@using Microsoft.EntityFrameworkCore
-@using TrainingSystem.Data
+@using TrainingSystem.Client.Services
 @using TrainingSystem.Shared.Domain
-@inject IDbContextFactory<AppDbContext> DbFactory
+@inject IClientService ClientService
+@inject NavigationManager Navigation
 
-<PageTitle>نظام التدريب والمتابعة</PageTitle>
+<PageTitle>لوحة التحكم | نظام التدريب</PageTitle>
 
-<div class="text-center mt-5">
-    <h1>مرحباً بكم في نظام إدارة التدريب</h1>
-    <p class="lead">نظام متكامل لإدارة الموظفين، الدورات التدريبية، وتسجيل الحضور.</p>
+<MudContainer MaxWidth="MaxWidth.Large">
+    <MudText Typo="Typo.h5" Class="mb-4" Style="font-weight: 700;">لوحة التحكم</MudText>
+
+    <MudGrid Class="mb-8">
+        <!-- Employees Card -->
+        <MudItem xs="12" sm="6" md="3">
+            <MudPaper Elevation="0" Class="pa-4 rounded-lg d-flex flex-column" Style="background: linear-gradient(135deg, #594AE2 0%, #3E32A8 100%); color: white;">
+                <div class="d-flex justify-space-between align-start mb-2">
+                    <MudIcon Icon="@Icons.Material.Filled.People" Size="Size.Large" style="opacity: 0.8"/>
+                    <MudChip T="string" Size="Size.Small" Color="Color.Surface" Style="font-weight: bold;">@((stats.EmployeeGrowth >= 0 ? "+" : "") + stats.EmployeeGrowth + "%")</MudChip>
+                </div>
+                <MudText Typo="Typo.h3" Style="font-weight: 800;">@stats.EmployeeCount</MudText>
+                <MudText Typo="Typo.subtitle2" Style="opacity: 0.8;">إجمالي الموظفين</MudText>
+            </MudPaper>
+        </MudItem>
+
+        <!-- Courses Card -->
+        <MudItem xs="12" sm="6" md="3">
+            <MudPaper Elevation="0" Class="pa-4 rounded-lg d-flex flex-column" Style="background: linear-gradient(135deg, #FF4081 0%, #C6285D 100%); color: white;">
+                <div class="d-flex justify-space-between align-start mb-2">
+                    <MudIcon Icon="@Icons.Material.Filled.School" Size="Size.Large" style="opacity: 0.8"/>
+                    <MudChip T="string" Size="Size.Small" Color="Color.Surface" Style="font-weight: bold;">@((stats.CourseGrowth >= 0 ? "+" : "") + stats.CourseGrowth + "%")</MudChip>
+                </div>
+                <MudText Typo="Typo.h3" Style="font-weight: 800;">@stats.CourseCount</MudText>
+                <MudText Typo="Typo.subtitle2" Style="opacity: 0.8;">الدورات النشطة</MudText>
+            </MudPaper>
+        </MudItem>
+
+        <!-- Enrollments Card -->
+        <MudItem xs="12" sm="6" md="3">
+            <MudPaper Elevation="0" Class="pa-4 rounded-lg d-flex flex-column" Style="background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%); color: white;">
+                <div class="d-flex justify-space-between align-start mb-2">
+                    <MudIcon Icon="@Icons.Material.Filled.AppRegistration" Size="Size.Large" style="opacity: 0.8"/>
+                </div>
+                <MudText Typo="Typo.h3" Style="font-weight: 800;">@stats.EnrollmentCount</MudText>
+                <MudText Typo="Typo.subtitle2" Style="opacity: 0.8;">إجمالي التسجيلات</MudText>
+            </MudPaper>
+        </MudItem>
+        
+        <!-- Attendance Card (Static for now or calc from DB) -->
+        <MudItem xs="12" sm="6" md="3">
+            <MudPaper Elevation="0" Class="pa-4 rounded-lg d-flex flex-column" Style="background: linear-gradient(135deg, #FF9800 0%, #EF6C00 100%); color: white;">
+                <div class="d-flex justify-space-between align-start mb-2">
+                    <MudIcon Icon="@Icons.Material.Filled.AccessTime" Size="Size.Large" style="opacity: 0.8"/>
+                    <MudChip T="string" Size="Size.Small" Color="Color.Surface" Style="font-weight: bold;">اليوم</MudChip>
+                </div>
+                <MudText Typo="Typo.h3" Style="font-weight: 800;">@stats.AttendancePercentage%</MudText>
+                <MudText Typo="Typo.subtitle2" Style="opacity: 0.8;">نسبة الحضور</MudText>
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
     
-    <div class="row mt-5">
-        <div class="col-md-3">
-            <div class="card text-white bg-primary mb-3">
-                <div class="card-header">الموظفين</div>
-                <div class="card-body">
-                    <h5 class="card-title">@stats.EmployeeCount</h5>
-                    <p class="card-text">موظف مسجل</p>
-                    <a href="employees" class="btn btn-light btn-sm">عرض</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card text-white bg-success mb-3">
-                <div class="card-header">الدورات</div>
-                <div class="card-body">
-                    <h5 class="card-title">@stats.CourseCount</h5>
-                    <p class="card-text">دورة تدريبية</p>
-                    <a href="courses" class="btn btn-light btn-sm">عرض</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card text-white bg-warning mb-3">
-                <div class="card-header">التسجيلات</div>
-                <div class="card-body">
-                    <h5 class="card-title">@stats.EnrollmentCount</h5>
-                    <p class="card-text">إجمالي التسجيلات</p>
-                    <a href="enrollments" class="btn btn-light btn-sm">عرض</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-             <div class="card text-white bg-info mb-3">
-                <div class="card-header">الحضور</div>
-                <div class="card-body">
-                    <h5 class="card-title">متابعة</h5>
-                    <p class="card-text">سجل الحضور</p>
-                    <a href="attendance" class="btn btn-light btn-sm">عرض</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+    <!-- Recent Activity / Chart Stub -->
+    <MudGrid>
+        <MudItem xs="12" md="8">
+             <MudPaper Elevation="0" Class="pa-6 rounded-lg border mud-border-color">
+                 <div class="d-flex justify-space-between align-center mb-4">
+                     <MudText Typo="Typo.h6" Style="font-weight: 700;">إحصائيات التدريب الشهرية</MudText>
+                     <MudIconButton Icon="@Icons.Material.Filled.MoreHoriz" Color="Color.Default" />
+                 </div>
+                 <MudPaper Elevation="0" Outlined="true" Class="d-flex align-center justify-center mud-width-full" Style="height: 400px; background-color: var(--mud-palette-surface);">
+                     @if (stats.MonthlyCourseCounts.Any())
+                     {
+                        <MudChart ChartType="ChartType.Bar" ChartSeries="@(new List<ChartSeries> { new ChartSeries { Name = "الدورات", Data = stats.MonthlyCourseCounts } })" XAxisLabels="@stats.MonthlyLabels" Width="100%" Height="350px" /> 
+                     }
+                     else
+                     {
+                         <MudProgressCircular Indeterminate="true" />
+                     }
+                 </MudPaper>
+             </MudPaper>
+        </MudItem>
+        <MudItem xs="12" md="4">
+            <MudPaper Elevation="0" Class="pa-6 rounded-lg border mud-border-color" Style="height: 100%">
+                <MudText Typo="Typo.h6" Class="mb-4" Style="font-weight: 700;">أحدث الدورات</MudText>
+                @if (stats.LatestCourses.Any())
+                {
+                    <MudList T="string" Dense="true" Clickable="true">
+                        @foreach(var course in stats.LatestCourses)
+                        {
+                            <MudListItem Icon="@Icons.Material.Filled.Circle" IconColor="@(course.Type == "Internal" ? Color.Info : Color.Warning)" Text="@course.Title" OnClick="@(() => Navigation.NavigateTo($"courses/edit/{course.Id}"))" />
+                        }
+                    </MudList>
+                }
+                else
+                {
+                    <MudText Typo="Typo.body2" Class="text-muted">لا توجد دورات حديثة</MudText>
+                }
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+
+</MudContainer>
 
 @code {
     private DashboardStats stats = new();
 
     protected override async Task OnInitializedAsync()
     {
-        using var context = DbFactory.CreateDbContext();
-        stats = new DashboardStats
-        {
-            EmployeeCount = await context.Employees.CountAsync(),
-            CourseCount = await context.Courses.CountAsync(),
-            EnrollmentCount = await context.Enrollments.CountAsync()
-        };
+        stats = await ClientService.GetDashboardStatsAsync();
     }
 }

@@ -32,11 +32,11 @@ namespace TrainingSystem.Migrations
                     b.Property<int>("EmployeeId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool>("IsPresent")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("Notes")
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
@@ -55,9 +55,18 @@ namespace TrainingSystem.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Duration")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("EndDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Provider")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("StartDate")
@@ -67,8 +76,12 @@ namespace TrainingSystem.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Type")
-                        .HasColumnType("INTEGER");
+                    b.Property<DateTime?>("TravelDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -82,6 +95,15 @@ namespace TrainingSystem.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Department")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("EmploymentNumber")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("FullName")
@@ -89,6 +111,10 @@ namespace TrainingSystem.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("JobTitle")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("JoinedDate")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

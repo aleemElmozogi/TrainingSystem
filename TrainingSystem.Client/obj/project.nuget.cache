@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "fLOf+dHEENw=",
+  "dgSpecHash": "gWlTczZrlLc=",
   "success": true,
   "projectFilePath": "/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/TrainingSystem.Client.csproj",
   "expectedPackageFiles": [
@@ -21,6 +21,8 @@
     "/Users/abdul-aleem/.nuget/packages/microsoft.extensions.fileproviders.abstractions/9.0.5/microsoft.extensions.fileproviders.abstractions.9.0.5.nupkg.sha512",
     "/Users/abdul-aleem/.nuget/packages/microsoft.extensions.fileproviders.physical/9.0.5/microsoft.extensions.fileproviders.physical.9.0.5.nupkg.sha512",
     "/Users/abdul-aleem/.nuget/packages/microsoft.extensions.filesystemglobbing/9.0.5/microsoft.extensions.filesystemglobbing.9.0.5.nupkg.sha512",
+    "/Users/abdul-aleem/.nuget/packages/microsoft.extensions.localization/9.0.1/microsoft.extensions.localization.9.0.1.nupkg.sha512",
+    "/Users/abdul-aleem/.nuget/packages/microsoft.extensions.localization.abstractions/9.0.1/microsoft.extensions.localization.abstractions.9.0.1.nupkg.sha512",
     "/Users/abdul-aleem/.nuget/packages/microsoft.extensions.logging/9.0.5/microsoft.extensions.logging.9.0.5.nupkg.sha512",
     "/Users/abdul-aleem/.nuget/packages/microsoft.extensions.logging.abstractions/9.0.5/microsoft.extensions.logging.abstractions.9.0.5.nupkg.sha512",
     "/Users/abdul-aleem/.nuget/packages/microsoft.extensions.options/9.0.5/microsoft.extensions.options.9.0.5.nupkg.sha512",
@@ -29,6 +31,7 @@
     "/Users/abdul-aleem/.nuget/packages/microsoft.jsinterop.webassembly/9.0.5/microsoft.jsinterop.webassembly.9.0.5.nupkg.sha512",
     "/Users/abdul-aleem/.nuget/packages/microsoft.net.illink.tasks/9.0.5/microsoft.net.illink.tasks.9.0.5.nupkg.sha512",
     "/Users/abdul-aleem/.nuget/packages/microsoft.net.sdk.webassembly.pack/9.0.5/microsoft.net.sdk.webassembly.pack.9.0.5.nupkg.sha512",
+    "/Users/abdul-aleem/.nuget/packages/mudblazor/8.0.0/mudblazor.8.0.0.nupkg.sha512",
     "/Users/abdul-aleem/.nuget/packages/microsoft.netcore.app.runtime.mono.browser-wasm/9.0.5/microsoft.netcore.app.runtime.mono.browser-wasm.9.0.5.nupkg.sha512"
   ],
   "logs": [

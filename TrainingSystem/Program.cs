@@ -1,5 +1,6 @@
 using TrainingSystem.Client.Pages;
 using TrainingSystem.Components;
+using MudBlazor.Services;
 
 using Microsoft.EntityFrameworkCore;
 using TrainingSystem.Data;
@@ -14,7 +15,16 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+    });
+
+// Register HttpClient and ClientService for Server-side rendering
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://localhost:5258") });
+builder.Services.AddScoped<TrainingSystem.Client.Services.IClientService, TrainingSystem.Client.Services.ClientService>();
+builder.Services.AddMudServices();
 
 var app = builder.Build();
 

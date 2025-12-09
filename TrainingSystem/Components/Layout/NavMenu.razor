@@ -1,38 +1,16 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">TrainingSystem</a>
-    </div>
-</div>
-
-<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
-
-<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
-    <nav class="nav flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> الرئيسية
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="employees">
-                <span class="bi bi-person-badge-nav-menu" aria-hidden="true"></span> الموظفين
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="courses">
-                <span class="bi bi-journal-bookmark-nav-menu" aria-hidden="true"></span> الدورات
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="enrollments">
-                <span class="bi bi-pencil-square-nav-menu" aria-hidden="true"></span> التسجيل
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="attendance">
-                <span class="bi bi-calendar-check-nav-menu" aria-hidden="true"></span> الحضور
-            </NavLink>
-        </div>
-    </nav>
-</div>
-
+﻿<MudNavMenu Class="pt-4">
+    <MudText Typo="Typo.caption" Class="px-4 mb-2 text-muted" Style="color: #9CA3AF; font-weight: bold;">القائمة الرئيسية</MudText>
+    
+    <MudNavLink Href="" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Dashboard">لوحة التحكم</MudNavLink>
+    <MudText Typo="Typo.caption" Class="px-4 mt-6 mb-2 text-muted" Style="color: #9CA3AF; font-weight: bold;">الموظفين</MudText>
+    
+    <MudNavGroup Title="الموظفين" Icon="@Icons.Material.Filled.People" Expanded="true">
+        <MudNavLink Href="employees" Icon="@Icons.Material.Filled.List">قائمة الموظفين</MudNavLink>
+        <MudNavLink Href="attendance" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.AccessTime">الحضور والانصراف</MudNavLink>
+        <MudNavLink Href="enrollments" Icon="@Icons.Material.Filled.AppRegistration">التسجيل في الدورات</MudNavLink>
+    </MudNavGroup>
+    
+    <MudText Typo="Typo.caption" Class="px-4 mt-6 mb-2 text-muted" Style="color: #9CA3AF; font-weight: bold;">التدريب</MudText>
+    <MudNavLink Href="courses" Icon="@Icons.Material.Filled.School">الدورات التدريبية</MudNavLink>
+    <MudNavLink Href="reports" Icon="@Icons.Material.Filled.Assessment">التقارير</MudNavLink>
+</MudNavMenu>

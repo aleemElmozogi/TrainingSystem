@@ -1,68 +1,76 @@
 @page "/courses"
 @inject IClientService ClientService
+@inject NavigationManager Navigation
+@inject IDialogService DialogService
+@inject ISnackbar Snackbar
 
-<PageTitle>الدورات التدريبية</PageTitle>
+<PageTitle>الدورات</PageTitle>
 
-<div class="d-flex justify-content-between align-items-center mb-3">
-    <h1>الدورات التدريبية</h1>
-    <a href="courses/add" class="btn btn-primary">إضافة دورة</a>
-</div>
+<MudContainer MaxWidth="MaxWidth.Large">
+    <div class="d-flex justify-space-between align-center mb-4">
+         <MudText Typo="Typo.h4">الدورات التدريبية</MudText>
+         <MudButton Variant="Variant.Filled" Color="Color.Success" StartIcon="@Icons.Material.Filled.Add" Href="courses/add">إضافة دورة</MudButton>
+    </div>
 
-@if (courses == null)
-{
-    <p><em>جاري التحميل...</em></p>
-}
-else
-{
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>العنوان</th>
-                <th>النوع</th>
-                <th>تاريخ البدء</th>
-                <th>تاريخ الانتهاء</th>
-                <th>إجراءات</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var course in courses)
-            {
-                <tr>
-                    <td>@course.Title</td>
-                    <td>@(course.Type == CourseType.ShortTerm ? "قصيرة المدى" : "طويلة المدى")</td>
-                    <td>@course.StartDate.ToShortDateString()</td>
-                    <td>@course.EndDate.ToShortDateString()</td>
-                    <td>
-                        <a href="courses/edit/@course.Id" class="btn btn-sm btn-warning">تعديل</a>
-                        <button class="btn btn-sm btn-danger" @onclick="() => DeleteCourse(course.Id)">حذف</button>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
-
-@inject IJSRuntime JS
+    @if (courses == null)
+    {
+        <MudProgressCircular Color="Color.Success" Indeterminate="true" />
+    }
+    else
+    {
+        <MudTable Items="@courses" Hover="true" Breakpoint="Breakpoint.Sm" Elevation="0" Outlined="true" Striped="true">
+            <HeaderContent>
+                <MudTh>العنوان</MudTh>
+                <MudTh>النوع</MudTh>
+                <MudTh>جهة التنفيذ</MudTh>
+                <MudTh>المدة</MudTh>
+                <MudTh>تاريخ السفر</MudTh>
+                <MudTh>تاريخ البدء</MudTh>
+                <MudTh>تاريخ الانتهاء</MudTh>
+                <MudTh Style="text-align:end">الإجراءات</MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd DataLabel="العنوان">
+                     <MudText Typo="Typo.body2" Style="font-weight: 600;">@context.Title</MudText>
+                     <MudText Typo="Typo.caption" Class="text-muted">@context.Description</MudText>
+                </MudTd>
+                <MudTd DataLabel="النوع">
+                     <MudChip T="string" Size="Size.Small" Color="@(context.Type == "Internal" ? Color.Info : Color.Warning)" Variant="Variant.Text">@context.Type</MudChip>
+                </MudTd>
+                <MudTd DataLabel="جهة التنفيذ">@context.Provider</MudTd>
+                <MudTd DataLabel="المدة">@context.Duration</MudTd>
+                <MudTd DataLabel="السفر">@(context.TravelDate?.ToShortDateString() ?? "-")</MudTd>
+                <MudTd DataLabel="البدء">@context.StartDate.ToShortDateString()</MudTd>
+                <MudTd DataLabel="الانتهاء">@context.EndDate.ToShortDateString()</MudTd>
+                <MudTd DataLabel="الإجراءات" Style="text-align:end">
+                    <MudIconButton Icon="@Icons.Material.Filled.Edit" Size="Size.Small" Color="Color.Default" Href="@($"courses/edit/{context.Id}")" />
+                    <MudIconButton Icon="@Icons.Material.Filled.Delete" Size="Size.Small" Color="Color.Error" OnClick="@(() => DeleteCourse(context.Id))" />
+                </MudTd>
+            </RowTemplate>
+        </MudTable>
+    }
+</MudContainer>
 
 @code {
     private List<Course>? courses;
 
     protected override async Task OnInitializedAsync()
     {
-        await LoadCourses();
-    }
-
-    private async Task LoadCourses()
-    {
         courses = await ClientService.GetCoursesAsync();
     }
 
     private async Task DeleteCourse(int id)
     {
-        if (await JS.InvokeAsync<bool>("confirm", "هل أنت متأكد من حذف هذه الدورة؟"))
+        bool? result = await DialogService.ShowMessageBox(
+            "تأكيد الحذف", 
+            "هل أنت متأكد من حذف هذه الدورة؟", 
+            yesText:"حذف", cancelText:"إلغاء");
+
+        if (result == true)
         {
             await ClientService.DeleteCourseAsync(id);
-            await LoadCourses();
+            courses = await ClientService.GetCoursesAsync();
+            Snackbar.Add("تم حذف الدورة", Severity.Success);
         }
     }
 }

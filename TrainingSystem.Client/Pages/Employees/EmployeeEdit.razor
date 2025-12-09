@@ -1,45 +1,51 @@
 @page "/employees/edit/{id:int}"
 @inject IClientService ClientService
 @inject NavigationManager Navigation
-@inject IJSRuntime JS
+@inject ISnackbar Snackbar
 
-<PageTitle>تعديل بيانات الموظف</PageTitle>
+<PageTitle>تعديل الموظف</PageTitle>
 
-<h1>تعديل بيانات الموظف</h1>
-
-@if (employee == null)
-{
-    <p><em>جاري التحميل أو الموظف غير موجود...</em></p>
-}
-else
-{
-    <div class="row">
-        <div class="col-md-6">
-            <EditForm Model="@employee" OnValidSubmit="HandleValidSubmit">
-                <DataAnnotationsValidator />
-                <ValidationSummary />
-
-                <div class="mb-3">
-                    <label for="fullName" class="form-label">الاسم الكامل</label>
-                    <InputText id="fullName" class="form-control" @bind-Value="employee.FullName" />
-                </div>
-
-                <div class="mb-3">
-                    <label for="department" class="form-label">القسم</label>
-                    <InputText id="department" class="form-control" @bind-Value="employee.Department" />
-                </div>
-
-                <div class="mb-3">
-                    <label for="jobTitle" class="form-label">المسمى الوظيفي</label>
-                    <InputText id="jobTitle" class="form-control" @bind-Value="employee.JobTitle" />
-                </div>
-
-                <button type="submit" class="btn btn-success">حفظ التعديلات</button>
-                <a href="employees" class="btn btn-secondary">إلغاء</a>
-            </EditForm>
-        </div>
-    </div>
-}
+<MudContainer MaxWidth="MaxWidth.Small">
+    <MudText Typo="Typo.h4" Class="mb-4">تعديل بيانات الموظف</MudText>
+    
+    @if (employee == null)
+    {
+         <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+    }
+    else
+    {
+        <MudCard>
+            <MudCardContent>
+                <EditForm Model="@employee" OnValidSubmit="HandleValidSubmit">
+                    <DataAnnotationsValidator />
+                    
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudTextField Label="الاسم الكامل" @bind-Value="employee.FullName" For="@(() => employee.FullName)" Variant="Variant.Outlined" Margin="Margin.Dense" />
+                        </MudItem>
+                        <MudItem xs="12" md="6">
+                            <MudTextField Label="رقم التوظيف" @bind-Value="employee.EmploymentNumber" For="@(() => employee.EmploymentNumber)" Variant="Variant.Outlined" Margin="Margin.Dense" />
+                        </MudItem>
+                        <MudItem xs="12" md="6">
+                            <MudTextField Label="البريد الإلكتروني" @bind-Value="employee.Email" For="@(() => employee.Email)" Variant="Variant.Outlined" Margin="Margin.Dense" InputType="InputType.Email" />
+                        </MudItem>
+                        <MudItem xs="12">
+                             <MudTextField Label="القسم" @bind-Value="employee.Department" For="@(() => employee.Department)" Variant="Variant.Outlined" Margin="Margin.Dense" />
+                        </MudItem>
+                        <MudItem xs="12">
+                             <MudTextField Label="المسمى الوظيفي" @bind-Value="employee.JobTitle" For="@(() => employee.JobTitle)" Variant="Variant.Outlined" Margin="Margin.Dense" />
+                        </MudItem>
+                    </MudGrid>
+                    
+                    <div class="d-flex justify-end mt-4">
+                         <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Success" Class="ml-2">حفظ التعديلات</MudButton>
+                         <MudButton Variant="Variant.Text" Color="Color.Secondary" Href="employees">إلغاء</MudButton>
+                    </div>
+                </EditForm>
+            </MudCardContent>
+        </MudCard>
+    }
+</MudContainer>
 
 @code {
     [Parameter]
@@ -57,6 +63,7 @@ else
         if (employee != null)
         {
             await ClientService.UpdateEmployeeAsync(Id, employee);
+            Snackbar.Add("تم تعديل البيانات بنجاح", Severity.Success);
             Navigation.NavigateTo("employees");
         }
     }

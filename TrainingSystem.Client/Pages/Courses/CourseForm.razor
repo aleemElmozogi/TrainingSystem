@@ -1,57 +1,86 @@
 @page "/courses/add"
 @inject IClientService ClientService
 @inject NavigationManager Navigation
+@inject ISnackbar Snackbar
 
 <PageTitle>إضافة دورة</PageTitle>
 
-<h1>إضافة دورة جديدة</h1>
-
-<div class="row">
-    <div class="col-md-6">
-        <EditForm Model="@course" OnValidSubmit="HandleValidSubmit">
-            <DataAnnotationsValidator />
-            <ValidationSummary />
-
-            <div class="mb-3">
-                <label for="title" class="form-label">عنوان الدورة</label>
-                <InputText id="title" class="form-control" @bind-Value="course.Title" />
-            </div>
-
-            <div class="mb-3">
-                <label for="description" class="form-label">الوصف</label>
-                <InputTextArea id="description" class="form-control" @bind-Value="course.Description" />
-            </div>
-
-            <div class="mb-3">
-                <label for="type" class="form-label">النوع</label>
-                <InputSelect id="type" class="form-control" @bind-Value="course.Type">
-                    <option value="@CourseType.ShortTerm">قصيرة المدى</option>
-                    <option value="@CourseType.LongTerm">طويلة المدى</option>
-                </InputSelect>
-            </div>
-
-            <div class="mb-3">
-                <label for="startDate" class="form-label">تاريخ البدء</label>
-                <InputDate id="startDate" class="form-control" @bind-Value="course.StartDate" />
-            </div>
-
-            <div class="mb-3">
-                <label for="endDate" class="form-label">تاريخ الانتهاء</label>
-                <InputDate id="endDate" class="form-control" @bind-Value="course.EndDate" />
-            </div>
-
-            <button type="submit" class="btn btn-success">حفظ</button>
-            <a href="courses" class="btn btn-secondary">إلغاء</a>
-        </EditForm>
-    </div>
-</div>
+<MudContainer MaxWidth="MaxWidth.Small">
+    <MudText Typo="Typo.h4" Class="mb-4">إضافة دورة جديدة</MudText>
+    
+    <MudCard>
+        <MudCardContent>
+            <EditForm Model="@course" OnValidSubmit="HandleValidSubmit">
+                <DataAnnotationsValidator />
+                
+                <MudGrid>
+                    <MudItem xs="12">
+                        <MudTextField Label="عنوان الدورة" @bind-Value="course.Title" For="@(() => course.Title)" Variant="Variant.Outlined" Margin="Margin.Dense" />
+                    </MudItem>
+                    <MudItem xs="12">
+                         <MudTextField Label="الوصف" Lines="3" @bind-Value="course.Description" For="@(() => course.Description)" Variant="Variant.Outlined" Margin="Margin.Dense" />
+                    </MudItem>
+                    <MudItem xs="12" md="6">
+                         <MudTextField Label="جهة التنفيذ" @bind-Value="course.Provider" For="@(() => course.Provider)" Variant="Variant.Outlined" Margin="Margin.Dense" />
+                    </MudItem>
+                    <MudItem xs="12" md="6">
+                         <MudTextField Label="مدة الدورة" @bind-Value="course.Duration" For="@(() => course.Duration)" Variant="Variant.Outlined" Margin="Margin.Dense" />
+                    </MudItem>
+                    <MudItem xs="12" md="6">
+                         <MudDatePicker Label="تاريخ السفر" @bind-Date="travelDate" Variant="Variant.Outlined" Margin="Margin.Dense" />
+                    </MudItem>
+                    <MudItem xs="12">
+                        <MudSelect Label="النوع" @bind-Value="course.Type" Variant="Variant.Outlined" Margin="Margin.Dense">
+                            <MudSelectItem Value="@("Internal")">داخلي</MudSelectItem>
+                            <MudSelectItem Value="@("External")">خارجي</MudSelectItem>
+                        </MudSelect>
+                    </MudItem>
+                    <MudItem xs="6">
+                         <MudDatePicker Label="تاريخ البدء" @bind-Date="startDate" Variant="Variant.Outlined" Margin="Margin.Dense" />
+                    </MudItem>
+                     <MudItem xs="6">
+                         <MudDatePicker Label="تاريخ الانتهاء" @bind-Date="endDate" Variant="Variant.Outlined" Margin="Margin.Dense" />
+                    </MudItem>
+                </MudGrid>
+                
+                <div class="d-flex justify-end mt-4">
+                     <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Success" Class="ml-2">حفظ</MudButton>
+                     <MudButton Variant="Variant.Text" Color="Color.Secondary" Href="courses">إلغاء</MudButton>
+                </div>
+            </EditForm>
+        </MudCardContent>
+    </MudCard>
+</MudContainer>
 
 @code {
-    private Course course = new() { Title = "", StartDate = DateTime.Today, EndDate = DateTime.Today.AddDays(1) };
+    private Course course = new() { Title = "", StartDate = DateTime.Now, EndDate = DateTime.Now.AddDays(7) };
+    
+    // MudDatePicker uses DateTime?, binding explicitly
+    private DateTime? startDate 
+    { 
+        get => course.StartDate; 
+        set => course.StartDate = value ?? DateTime.Now; 
+    }
+    
+    private DateTime? endDate 
+    { 
+        get => course.EndDate; 
+        set => course.EndDate = value ?? DateTime.Now; 
+    }
+
+    private DateTime? travelDate 
+    { 
+        get => course.TravelDate; 
+        set => course.TravelDate = value; 
+    }
 
     private async Task HandleValidSubmit()
     {
-        await ClientService.CreateCourseAsync(course);
-        Navigation.NavigateTo("courses");
+        var result = await ClientService.CreateCourseAsync(course);
+        if (result != null)
+        {
+            Snackbar.Add("تمت إضافة الدورة بنجاح", Severity.Success);
+            Navigation.NavigateTo("courses");
+        }
     }
 }

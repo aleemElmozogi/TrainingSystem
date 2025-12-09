@@ -3,6 +3,9 @@ build_property.EnableAotAnalyzer =
 build_property.EnableSingleFileAnalyzer = 
 build_property.EnableTrimAnalyzer = false
 build_property.IncludeAllContentForSelfExtract = 
+build_property.MudDebugAnalyzer = 
+build_property.MudAllowedAttributePattern = 
+build_property.MudAllowedAttributeList = 
 build_property.TargetFramework = net9.0
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = 
@@ -58,6 +61,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/Pages/Enrollments/EnrollmentManager.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRW5yb2xsbWVudHMvRW5yb2xsbWVudE1hbmFnZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/Pages/Reports/Reports.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUmVwb3J0cy9SZXBvcnRzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/abdul-aleem/Documents/Dev/web/sh/TrainingSystem/TrainingSystem.Client/_Imports.razor]

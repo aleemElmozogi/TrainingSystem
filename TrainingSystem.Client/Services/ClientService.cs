@@ -27,14 +27,26 @@ public class ClientService : IClientService
         catch(HttpRequestException) { return null; }
     }
 
-    public async Task<Employee?> CreateEmployeeAsync(Employee employee)
+     public async Task<Employee?> CreateEmployeeAsync(Employee employee)
     {
-        var response = await _httpClient.PostAsJsonAsync("api/employees", employee);
-        if (response.IsSuccessStatusCode)
+        try
         {
-            return await response.Content.ReadFromJsonAsync<Employee>();
+            var response = await _httpClient.PostAsJsonAsync("api/employees", employee);
+            if (response.IsSuccessStatusCode)
+            {
+                 return await response.Content.ReadFromJsonAsync<Employee>();
+            }
+            else
+            {
+                 Console.WriteLine($"Error creating employee: {response.StatusCode} - {await response.Content.ReadAsStringAsync()}");
+                 return null;
+            }
         }
-        return null;
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Exception creating employee: {ex.Message}");
+            return null;
+        }
     }
 
     public async Task UpdateEmployeeAsync(int id, Employee employee)
@@ -64,12 +76,21 @@ public class ClientService : IClientService
 
     public async Task<Course?> CreateCourseAsync(Course course)
     {
-        var response = await _httpClient.PostAsJsonAsync("api/courses", course);
-        if (response.IsSuccessStatusCode)
+        try
         {
-            return await response.Content.ReadFromJsonAsync<Course>();
+            var response = await _httpClient.PostAsJsonAsync("api/courses", course);
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadFromJsonAsync<Course>();
+            }
+            Console.WriteLine($"Error creating course: {response.StatusCode}");
+            return null;
         }
-        return null;
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Exception creating course: {ex.Message}");
+            return null;
+        }
     }
 
     public async Task UpdateCourseAsync(int id, Course course)
@@ -126,5 +147,28 @@ public class ClientService : IClientService
     public async Task<DashboardStats> GetDashboardStatsAsync()
     {
         return await _httpClient.GetFromJsonAsync<DashboardStats>("api/stats") ?? new DashboardStats();
+    }
+
+    // Reports
+    public async Task<List<TrainingSystem.Shared.DTOs.CourseAssignmentDto>> GetCourseAssignmentsReportAsync(int courseId)
+    {
+         return await _httpClient.GetFromJsonAsync<List<TrainingSystem.Shared.DTOs.CourseAssignmentDto>>($"api/reports/course-assignments/{courseId}") ?? new List<TrainingSystem.Shared.DTOs.CourseAssignmentDto>();
+    }
+
+    public async Task<List<TrainingSystem.Shared.DTOs.EmployeeAssignmentDto>> GetEmployeeAssignmentsReportAsync(int employeeId)
+    {
+        return await _httpClient.GetFromJsonAsync<List<TrainingSystem.Shared.DTOs.EmployeeAssignmentDto>>($"api/reports/employee-assignments/{employeeId}") ?? new List<TrainingSystem.Shared.DTOs.EmployeeAssignmentDto>();
+    }
+
+    public async Task<List<TrainingSystem.Shared.DTOs.AttendanceReportDto>> GetAttendanceReportAsync(int? courseId, int? employeeId, DateTime? startDate, DateTime? endDate)
+    {
+        var query = System.Web.HttpUtility.ParseQueryString(string.Empty);
+        if (courseId.HasValue) query["courseId"] = courseId.Value.ToString();
+        if (employeeId.HasValue) query["employeeId"] = employeeId.Value.ToString();
+        if (startDate.HasValue) query["startDate"] = startDate.Value.ToString("yyyy-MM-dd");
+        if (endDate.HasValue) query["endDate"] = endDate.Value.ToString("yyyy-MM-dd");
+
+        var url = $"api/reports/attendance?{query}";
+        return await _httpClient.GetFromJsonAsync<List<TrainingSystem.Shared.DTOs.AttendanceReportDto>>(url) ?? new List<TrainingSystem.Shared.DTOs.AttendanceReportDto>();
     }
 }

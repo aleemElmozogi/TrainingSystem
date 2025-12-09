@@ -64,6 +64,10 @@
               "target": "Package",
               "version": "[9.0.5, )",
               "autoReferenced": true
+            },
+            "MudBlazor": {
+              "target": "Package",
+              "version": "[8.0.0, )"
             }
           },
           "imports": [
@@ -205,6 +209,10 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "ClosedXML": {
+              "target": "Package",
+              "version": "[0.104.2, )"
+            },
             "Microsoft.AspNetCore.Components.WebAssembly.Server": {
               "target": "Package",
               "version": "[9.0.5, )"
@@ -216,6 +224,10 @@
             "Microsoft.EntityFrameworkCore.Tools": {
               "target": "Package",
               "version": "[9.0.0, )"
+            },
+            "MudBlazor": {
+              "target": "Package",
+              "version": "[8.0.0, )"
             }
           },
           "imports": [

@@ -19,11 +19,36 @@ public class AttendanceController : ControllerBase
     [HttpGet("{courseId}/{date}")]
     public async Task<ActionResult<List<AttendanceRecord>>> GetAttendance(int courseId, DateTime date)
     {
-        // Return existing records for that course and date
-        return await _context.AttendanceRecords
+        // 1. Get existing attendance records
+        var existingRecords = await _context.AttendanceRecords
             .Include(a => a.Employee)
             .Where(a => a.CourseId == courseId && a.Date.Date == date.Date)
             .ToListAsync();
+
+        // 2. Get enrollments for this course
+        var enrollments = await _context.Enrollments
+            .Include(e => e.Employee)
+            .Where(e => e.CourseId == courseId)
+            .ToListAsync();
+
+        // 3. Create missing records for enrolled employees
+        foreach (var enrollment in enrollments)
+        {
+            if (!existingRecords.Any(r => r.EmployeeId == enrollment.EmployeeId))
+            {
+                existingRecords.Add(new AttendanceRecord
+                {
+                    CourseId = courseId,
+                    EmployeeId = enrollment.EmployeeId,
+                    Employee = enrollment.Employee, // Populate navigation property for UI
+                    Date = date,
+                    Status = AttendanceStatus.Present,
+                    Notes = ""
+                });
+            }
+        }
+
+        return existingRecords.OrderBy(r => r.Employee?.FullName).ToList();
     }
 
     [HttpPost]
@@ -47,7 +72,7 @@ public class AttendanceController : ControllerBase
             var existing = existingRecords.FirstOrDefault(r => r.EmployeeId == record.EmployeeId);
             if (existing != null)
             {
-                existing.IsPresent = record.IsPresent;
+                existing.Status = record.Status;
                 existing.Notes = record.Notes;
             }
             else
