@@ -1,0 +1,214 @@
+@page "/reports"
+@using TrainingSystem.Shared.Domain
+@using TrainingSystem.Shared.DTOs
+@using TrainingSystem.Client.Services
+@inject IClientService ClientService
+@inject NavigationManager NavigationManager
+@inject ISnackbar Snackbar
+
+<PageTitle>التقارير</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.ExtraLarge" Class="mt-4">
+    <MudText Typo="Typo.h3" Class="mb-4" Color="Color.Primary" Align="Align.Center">التقارير</MudText>
+
+    <MudTabs Elevation="2" Rounded="true" ApplyEffectsToContainer="true" PanelClass="pa-6">
+        <MudTabPanel Text="تقارير التعيينات (الدورات والموظفين)">
+            <MudGrid>
+                <MudItem xs="12" md="6">
+                    <MudSelect T="string" Label="نوع التقرير" @bind-Value="assignmentReportType" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter">
+                        <MudSelectItem Value="@("Course")">حسب الدورة</MudSelectItem>
+                        <MudSelectItem Value="@("Employee")">حسب الموظف</MudSelectItem>
+                    </MudSelect>
+                </MudItem>
+
+                <MudItem xs="12" md="6">
+                    @if (assignmentReportType == "Course")
+                    {
+                        <MudAutocomplete T="Course" Label="بحث عن دورة..." @bind-Value="selectedCourse" SearchFunc="@SearchCourses" 
+                                         ToStringFunc="@(c => c?.Title)" ResetValueOnEmptyText="true" Variant="Variant.Outlined" />
+                    }
+                    else
+                    {
+                        <MudAutocomplete T="Employee" Label="بحث عن موظف..." @bind-Value="selectedEmployee" SearchFunc="@SearchEmployees" 
+                                         ToStringFunc="@(e => e?.FullName)" ResetValueOnEmptyText="true" Variant="Variant.Outlined" />
+                    }
+                </MudItem>
+
+                <MudItem xs="12" Class="d-flex justify-start">
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="GetAssignmentReport" Disabled="@(!CanSearchAssignment)" StartIcon="@Icons.Material.Filled.Search">عرض</MudButton>
+                    <MudButton Variant="Variant.Outlined" Color="Color.Secondary" Class="mx-2" OnClick="ExportAssignmentReport" Disabled="@(!CanSearchAssignment)" StartIcon="@Icons.Material.Filled.FileDownload">تصدير Excel</MudButton>
+                </MudItem>
+
+                <MudItem xs="12">
+                    @if (courseAssignments != null && assignmentReportType == "Course")
+                    {
+                        <MudDataGrid Items="@courseAssignments" Filterable="true" SortMode="SortMode.Multiple" Groupable="false">
+                            <Columns>
+                                <PropertyColumn Property="x => x.EmployeeName" Title="الموظف" />
+                                <PropertyColumn Property="x => x.EmploymentNumber" Title="الرقم الوظيفي" />
+                                <PropertyColumn Property="x => x.Department" Title="القسم" />
+                                <PropertyColumn Property="x => x.JobTitle" Title="المسمى الوظيفي" />
+                                <PropertyColumn Property="x => x.JoinedDate" Title="تاريخ الانضمام" Format="yyyy-MM-dd" />
+                            </Columns>
+                            <PagerContent>
+                                <MudDataGridPager T="CourseAssignmentDto" />
+                            </PagerContent>
+                        </MudDataGrid>
+                    }
+                    else if (employeeAssignments != null && assignmentReportType == "Employee")
+                    {
+                        <MudDataGrid Items="@employeeAssignments" Filterable="true" SortMode="SortMode.Multiple" Groupable="false">
+                            <Columns>
+                                <PropertyColumn Property="x => x.CourseTitle" Title="الدورة" />
+                                <PropertyColumn Property="x => x.StartDate" Title="تاريخ البدء" Format="yyyy-MM-dd" />
+                                <PropertyColumn Property="x => x.EndDate" Title="تاريخ الانتهاء" Format="yyyy-MM-dd" />
+                                <PropertyColumn Property="x => x.Status" Title="الحالة" />
+                            </Columns>
+                            <PagerContent>
+                                <MudDataGridPager T="EmployeeAssignmentDto" />
+                            </PagerContent>
+                        </MudDataGrid>
+                    }
+                </MudItem>
+            </MudGrid>
+        </MudTabPanel>
+        
+        <MudTabPanel Text="تقرير الحضور والغياب">
+            <MudGrid>
+                <MudItem xs="12" md="4">
+                    <MudAutocomplete T="Course" Label="الدورة (اختياري)" @bind-Value="attendanceCourse" SearchFunc="@SearchCourses" 
+                                     ToStringFunc="@(c => c?.Title)" ResetValueOnEmptyText="true" Variant="Variant.Outlined" Clearable="true" />
+                </MudItem>
+                <MudItem xs="12" md="4">
+                    <MudAutocomplete T="Employee" Label="الموظف (اختياري)" @bind-Value="attendanceEmployee" SearchFunc="@SearchEmployees" 
+                                     ToStringFunc="@(e => e?.FullName)" ResetValueOnEmptyText="true" Variant="Variant.Outlined" Clearable="true" />
+                </MudItem>
+                <MudItem xs="12" md="4" Class="d-flex gap-2">
+                    <MudDatePicker Label="من تاريخ" @bind-Date="attendanceStartDate" Variant="Variant.Outlined" />
+                    <MudDatePicker Label="إلى تاريخ" @bind-Date="attendanceEndDate" Variant="Variant.Outlined" />
+                </MudItem>
+                 <MudItem xs="12" Class="d-flex justify-start">
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="GetAttendanceReport" StartIcon="@Icons.Material.Filled.Search">بحث</MudButton>
+                    <MudButton Variant="Variant.Outlined" Color="Color.Secondary" Class="mx-2" OnClick="ExportAttendanceReport" StartIcon="@Icons.Material.Filled.FileDownload">تصدير Excel</MudButton>
+                </MudItem>
+                
+                <MudItem xs="12">
+                     <MudDataGrid Items="@attendanceReport" Filterable="true" SortMode="SortMode.Multiple" Groupable="true">
+                        <Columns>
+                            <PropertyColumn Property="x => x.Date" Title="التاريخ" Format="yyyy-MM-dd" />
+                            <PropertyColumn Property="x => x.CourseTitle" Title="الدورة" />
+                            <PropertyColumn Property="x => x.EmployeeName" Title="الموظف" />
+                            <PropertyColumn Property="x => x.Status" Title="الحالة">
+                                <CellTemplate>
+                                    @if(context.Item.Status == "Present")
+                                    {
+                                        <MudChip T="string" Color="Color.Success" Size="Size.Small">حاضر</MudChip>
+                                    }
+                                    else if (context.Item.Status == "Absent")
+                                    {
+                                         <MudChip T="string" Color="Color.Error" Size="Size.Small">غائب</MudChip>
+                                    }
+                                    else
+                                    {
+                                         <MudChip T="string" Color="Color.Warning" Size="Size.Small">معذور</MudChip>
+                                    }
+                                </CellTemplate>
+                            </PropertyColumn>
+                            <PropertyColumn Property="x => x.Notes" Title="ملاحظات" />
+                        </Columns>
+                        <PagerContent>
+                            <MudDataGridPager T="AttendanceReportDto" />
+                        </PagerContent>
+                    </MudDataGrid>
+                </MudItem>
+            </MudGrid>
+        </MudTabPanel>
+    </MudTabs>
+</MudContainer>
+
+@code {
+    private string assignmentReportType = "Course";
+    private Course? selectedCourse;
+    private Employee? selectedEmployee;
+
+    private List<Course> allCourses = new();
+    private List<Employee> allEmployees = new();
+
+    private List<CourseAssignmentDto>? courseAssignments;
+    private List<EmployeeAssignmentDto>? employeeAssignments;
+
+    // Attendance
+    private Course? attendanceCourse;
+    private Employee? attendanceEmployee;
+    private DateTime? attendanceStartDate;
+    private DateTime? attendanceEndDate;
+    private List<AttendanceReportDto> attendanceReport = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        allCourses = await ClientService.GetCoursesAsync();
+        allEmployees = await ClientService.GetEmployeesAsync();
+    }
+
+    private Task<IEnumerable<Course>> SearchCourses(string value, CancellationToken token)
+    {
+        if (string.IsNullOrEmpty(value))
+            return Task.FromResult<IEnumerable<Course>>(allCourses);
+        return Task.FromResult<IEnumerable<Course>>(allCourses.Where(x => x.Title.Contains(value, StringComparison.InvariantCultureIgnoreCase)));
+    }
+
+    private Task<IEnumerable<Employee>> SearchEmployees(string value, CancellationToken token)
+    {
+        if (string.IsNullOrEmpty(value))
+            return Task.FromResult<IEnumerable<Employee>>(allEmployees);
+        return Task.FromResult<IEnumerable<Employee>>(allEmployees.Where(x => x.FullName.Contains(value, StringComparison.InvariantCultureIgnoreCase)));
+    }
+
+    private bool CanSearchAssignment => (assignmentReportType == "Course" && selectedCourse != null) || (assignmentReportType == "Employee" && selectedEmployee != null);
+
+    private async Task GetAssignmentReport()
+    {
+        if (assignmentReportType == "Course" && selectedCourse != null)
+        {
+            courseAssignments = await ClientService.GetCourseAssignmentsReportAsync(selectedCourse.Id);
+            employeeAssignments = null;
+        }
+        else if (assignmentReportType == "Employee" && selectedEmployee != null)
+        {
+            employeeAssignments = await ClientService.GetEmployeeAssignmentsReportAsync(selectedEmployee.Id);
+            courseAssignments = null;
+        }
+    }
+
+    private void ExportAssignmentReport()
+    {
+        if (assignmentReportType == "Course" && selectedCourse != null)
+        {
+             NavigationManager.NavigateTo($"api/reports/export/course-assignments/{selectedCourse.Id}", true);
+        }
+        else if (assignmentReportType == "Employee" && selectedEmployee != null)
+        {
+             NavigationManager.NavigateTo($"api/reports/export/employee-assignments/{selectedEmployee.Id}", true);
+        }
+    }
+
+    private async Task GetAttendanceReport()
+    {
+        attendanceReport = await ClientService.GetAttendanceReportAsync(attendanceCourse?.Id, attendanceEmployee?.Id, attendanceStartDate, attendanceEndDate);
+         if (!attendanceReport.Any())
+        {
+            Snackbar.Add("لا توجد سجلات تطابق البحث", Severity.Info);
+        }
+    }
+
+    private void ExportAttendanceReport()
+    {
+        var query = System.Web.HttpUtility.ParseQueryString(string.Empty);
+        if (attendanceCourse != null) query["courseId"] = attendanceCourse.Id.ToString();
+        if (attendanceEmployee != null) query["employeeId"] = attendanceEmployee.Id.ToString();
+        if (attendanceStartDate.HasValue) query["startDate"] = attendanceStartDate.Value.ToString("yyyy-MM-dd");
+        if (attendanceEndDate.HasValue) query["endDate"] = attendanceEndDate.Value.ToString("yyyy-MM-dd");
+
+        NavigationManager.NavigateTo($"api/reports/export/attendance?{query}", true);
+    }
+}

@@ -1,0 +1,16 @@
+﻿<MudNavMenu Class="pt-4">
+    <MudText Typo="Typo.caption" Class="px-4 mb-2 text-muted" Style="color: #9CA3AF; font-weight: bold;">القائمة الرئيسية</MudText>
+    
+    <MudNavLink Href="" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Dashboard">لوحة التحكم</MudNavLink>
+    <MudText Typo="Typo.caption" Class="px-4 mt-6 mb-2 text-muted" Style="color: #9CA3AF; font-weight: bold;">الموظفين</MudText>
+    
+    <MudNavGroup Title="الموظفين" Icon="@Icons.Material.Filled.People" Expanded="true">
+        <MudNavLink Href="employees" Icon="@Icons.Material.Filled.List">قائمة الموظفين</MudNavLink>
+        <MudNavLink Href="attendance" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.AccessTime">الحضور والانصراف</MudNavLink>
+        <MudNavLink Href="enrollments" Icon="@Icons.Material.Filled.AppRegistration">التسجيل في الدورات</MudNavLink>
+    </MudNavGroup>
+    
+    <MudText Typo="Typo.caption" Class="px-4 mt-6 mb-2 text-muted" Style="color: #9CA3AF; font-weight: bold;">التدريب</MudText>
+    <MudNavLink Href="courses" Icon="@Icons.Material.Filled.School">الدورات التدريبية</MudNavLink>
+    <MudNavLink Href="reports" Icon="@Icons.Material.Filled.Assessment">التقارير</MudNavLink>
+</MudNavMenu>

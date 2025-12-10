@@ -1,0 +1,101 @@
+@page "/courses/edit/{id:int}"
+@inject IClientService ClientService
+@inject NavigationManager Navigation
+@inject ISnackbar Snackbar
+
+<PageTitle>تعديل الدورة</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Small">
+    <MudText Typo="Typo.h4" Class="mb-4">تعديل الدورة</MudText>
+    
+    @if (course == null)
+    {
+         <MudProgressCircular Color="Color.Success" Indeterminate="true" />
+    }
+    else
+    {
+        <MudCard>
+            <MudCardContent>
+                <EditForm Model="@course" OnValidSubmit="HandleValidSubmit">
+                    <DataAnnotationsValidator />
+                    
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudTextField Label="عنوان الدورة" @bind-Value="course.Title" For="@(() => course.Title)" Variant="Variant.Outlined" Margin="Margin.Dense" />
+                        </MudItem>
+                        <MudItem xs="12">
+                             <MudTextField Label="الوصف" Lines="3" @bind-Value="course.Description" For="@(() => course.Description)" Variant="Variant.Outlined" Margin="Margin.Dense" />
+                        </MudItem>
+                        <MudItem xs="12" md="6">
+                             <MudTextField Label="جهة التنفيذ" @bind-Value="course.Provider" For="@(() => course.Provider)" Variant="Variant.Outlined" Margin="Margin.Dense" />
+                        </MudItem>
+                        <MudItem xs="12" md="6">
+                             <MudTextField Label="مدة الدورة" @bind-Value="course.Duration" For="@(() => course.Duration)" Variant="Variant.Outlined" Margin="Margin.Dense" />
+                        </MudItem>
+                        <MudItem xs="12" md="6">
+                             <MudDatePicker Label="تاريخ السفر" @bind-Date="travelDate" Variant="Variant.Outlined" Margin="Margin.Dense" />
+                        </MudItem>
+                        <MudItem xs="12">
+                            <MudSelect Label="النوع" @bind-Value="course.Type" Variant="Variant.Outlined" Margin="Margin.Dense">
+                                <MudSelectItem Value="@("Internal")">داخلي</MudSelectItem>
+                                <MudSelectItem Value="@("External")">خارجي</MudSelectItem>
+                            </MudSelect>
+                        </MudItem>
+                         <MudItem xs="6">
+                             <MudDatePicker Label="تاريخ البدء" @bind-Date="startDate" Variant="Variant.Outlined" Margin="Margin.Dense" />
+                        </MudItem>
+                         <MudItem xs="6">
+                             <MudDatePicker Label="تاريخ الانتهاء" @bind-Date="endDate" Variant="Variant.Outlined" Margin="Margin.Dense" />
+                        </MudItem>
+                    </MudGrid>
+                    
+                    <div class="d-flex justify-end mt-4">
+                         <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Success" Class="ml-2">حفظ التعديلات</MudButton>
+                         <MudButton Variant="Variant.Text" Color="Color.Secondary" Href="courses">إلغاء</MudButton>
+                    </div>
+                </EditForm>
+            </MudCardContent>
+        </MudCard>
+    }
+</MudContainer>
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    private Course? course;
+
+    // MudDatePicker helper properties
+    private DateTime? startDate 
+    { 
+        get => course?.StartDate; 
+        set { if(course != null) course.StartDate = value ?? DateTime.Now; } 
+    }
+    
+    private DateTime? endDate 
+    { 
+        get => course?.EndDate; 
+        set { if(course != null) course.EndDate = value ?? DateTime.Now; } 
+    }
+
+    private DateTime? travelDate 
+    { 
+        get => course?.TravelDate; 
+        set { if(course != null) course.TravelDate = value; } 
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        course = await ClientService.GetCourseByIdAsync(Id);
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        if (course != null)
+        {
+            await ClientService.UpdateCourseAsync(Id, course);
+            Snackbar.Add("تم تعديل الدورة بنجاح", Severity.Success);
+            Navigation.NavigateTo("courses");
+        }
+    }
+}

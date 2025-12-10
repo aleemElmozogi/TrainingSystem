@@ -1,0 +1,97 @@
+@page "/attendance"
+@inject IClientService ClientService
+@inject ISnackbar Snackbar
+
+<PageTitle>سجل الحضور</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Large">
+    <MudText Typo="Typo.h4" Class="mb-4">تسجيل الحضور والغياب</MudText>
+
+    <MudCard Class="mb-4">
+        <MudCardContent>
+            <MudGrid>
+                <MudItem xs="12" md="6">
+                    <MudSelect T="int" Label="اختر الدورة" @bind-Value="selectedCourseId" SelectedValuesChanged="LoadAttendanceSheet" Variant="Variant.Outlined" Margin="Margin.Dense" AnchorOrigin="Origin.BottomCenter">
+                        <MudSelectItem Value="0">-- اختر دورة --</MudSelectItem>
+                        @if (courses != null)
+                        {
+                            @foreach (var c in courses)
+                            {
+                                <MudSelectItem Value="@c.Id">@c.Title</MudSelectItem>
+                            }
+                        }
+                    </MudSelect>
+                </MudItem>
+                <MudItem xs="12" md="6">
+                    <MudDatePicker Label="التاريخ" @bind-Date="selectedDate" TextChanged="LoadAttendanceSheet" Variant="Variant.Outlined" Margin="Margin.Dense" />
+                </MudItem>
+            </MudGrid>
+        </MudCardContent>
+    </MudCard>
+
+    @if (attendanceRecords == null)
+    {
+        <MudText Typo="Typo.body1">الرجاء اختيار الدورة والتاريخ.</MudText>
+    }
+    else if (attendanceRecords.Count == 0)
+    {
+         <MudAlert Severity="Severity.Warning">لا يوجد موظفين مسجلين بهذه الدورة.</MudAlert>
+    }
+    else
+    {
+        <MudTable Items="@attendanceRecords" Hover="true" Striped="true" Breakpoint="Breakpoint.Sm">
+            <HeaderContent>
+                <MudTh>اسم الموظف</MudTh>
+                <MudTh>الحالة</MudTh>
+                <MudTh>ملاحظات</MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd DataLabel="الموظف">@context.Employee?.FullName</MudTd>
+                <MudTd DataLabel="الحالة">
+                    <MudSelect @bind-Value="context.Status" Dense="true" Margin="Margin.Dense" Variant="Variant.Outlined">
+                        <MudSelectItem Value="@(AttendanceStatus.Present)">حاضر</MudSelectItem>
+                        <MudSelectItem Value="@(AttendanceStatus.Absent)">غائب</MudSelectItem>
+                        <MudSelectItem Value="@(AttendanceStatus.Excused)">غائب بعذر</MudSelectItem>
+                    </MudSelect>
+                </MudTd>
+                <MudTd DataLabel="ملاحظات">
+                    <MudTextField @bind-Value="context.Notes" Variant="Variant.Text" Margin="Margin.Dense" FullWidth="true" />
+                </MudTd>
+            </RowTemplate>
+        </MudTable>
+        
+        <div class="d-flex justify-end mt-4">
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="SaveAttendance" Size="Size.Large" StartIcon="@Icons.Material.Filled.Save">حفظ الحضور</MudButton>
+        </div>
+    }
+</MudContainer>
+
+@code {
+    private List<Course>? courses;
+    private int selectedCourseId;
+    private DateTime? selectedDate = DateTime.Today; // MudDatePicker uses nullable DateTime
+    private List<AttendanceRecord>? attendanceRecords;
+
+    protected override async Task OnInitializedAsync()
+    {
+        courses = await ClientService.GetCoursesAsync();
+    }
+
+    private async Task LoadAttendanceSheet()
+    {
+        if (selectedCourseId == 0 || selectedDate == null) return;
+
+        // Fetch existing records or create new ones for enrolled students
+        attendanceRecords = await ClientService.GetAttendanceAsync(selectedCourseId, selectedDate.Value);
+        StateHasChanged(); // Force re-render just in case
+    }
+
+    private async Task SaveAttendance()
+    {
+        if (attendanceRecords != null)
+        {
+            await ClientService.SaveAttendanceAsync(attendanceRecords);
+            Snackbar.Add("تم حفظ سجل الحضور بنجاح", Severity.Success);
+        }
+    }
+}

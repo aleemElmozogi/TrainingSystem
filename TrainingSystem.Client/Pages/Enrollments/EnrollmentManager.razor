@@ -1,0 +1,153 @@
+@page "/enrollments"
+@inject IClientService ClientService
+@inject NavigationManager Navigation
+@inject ISnackbar Snackbar
+@inject IDialogService DialogService
+
+<PageTitle>إدارة التسجيل</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Medium">
+    <MudText Typo="Typo.h4" Class="mb-4">تسجيل الموظفين في الدورات</MudText>
+
+    <MudCard Class="mb-4">
+        <MudCardContent>
+            <MudGrid>
+                 <MudItem xs="12" md="6">
+                    <MudSelect T="int" Label="اختر الدورة" @bind-Value="selectedCourseId" SelectedValuesChanged="OnCourseChange" Variant="Variant.Outlined" Margin="Margin.Dense" AnchorOrigin="Origin.BottomCenter">
+                        <MudSelectItem Value="0">-- اختر دورة --</MudSelectItem>
+                        @if (courses != null)
+                        {
+                            @foreach (var c in courses)
+                            {
+                                <MudSelectItem Value="@c.Id">@c.Title</MudSelectItem>
+                            }
+                        }
+                    </MudSelect>
+                </MudItem>
+                <MudItem xs="12" md="6">
+                    <MudSelect T="int" Label="اختر الموظفين" @bind-SelectedValues="selectedEmployeeIds" MultiSelection="true" Variant="Variant.Outlined" Margin="Margin.Dense" AnchorOrigin="Origin.BottomCenter">
+                         @if (employees != null)
+                        {
+                            @foreach (var e in employees)
+                            {
+                                <MudSelectItem Value="@e.Id">@e.FullName</MudSelectItem>
+                            }
+                        }
+                    </MudSelect>
+                </MudItem>
+                <MudItem xs="12" Class="d-flex justify-end">
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="EnrollEmployees" Disabled="@(selectedCourseId == 0 || !selectedEmployeeIds.Any())">تسجيل الموظفين</MudButton>
+                </MudItem>
+            </MudGrid>
+        </MudCardContent>
+    </MudCard>
+
+    <MudText Typo="Typo.h5" Class="mb-2">الموظفين المسجلين في الدورة المختارة</MudText>
+    
+    @if (enrollments == null)
+    {
+         <MudText Typo="Typo.body1">الرجاء اختيار دورة لعرض المسجلين.</MudText>
+    }
+    else if (enrollments.Count == 0)
+    {
+        <MudAlert Severity="Severity.Info">لا يوجد موظفين مسجلين بهذه الدورة.</MudAlert>
+    }
+    else
+    {
+        <MudTable Items="@enrollments" Hover="true" Striped="true">
+            <HeaderContent>
+                <MudTh>اسم الموظف</MudTh>
+                <MudTh>تاريخ التسجيل</MudTh>
+                <MudTh>الإجراءات</MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd DataLabel="الموظف">@context.Employee?.FullName</MudTd>
+                <MudTd DataLabel="التاريخ">@DateTime.Now.ToShortDateString()</MudTd>
+                <MudTd DataLabel="الإجراءات">
+                     <MudButton Variant="Variant.Outlined" Color="Color.Error" Size="Size.Small" OnClick="@(() => RemoveEnrollment(context))">إلغاء التسجيل</MudButton>
+                </MudTd>
+            </RowTemplate>
+        </MudTable>
+    }
+</MudContainer>
+
+@code {
+    private List<Course>? courses;
+    private List<Employee>? employees;
+    private List<Enrollment>? enrollments;
+
+    private int selectedCourseId;
+    private IEnumerable<int> selectedEmployeeIds = new HashSet<int>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        courses = await ClientService.GetCoursesAsync();
+        employees = await ClientService.GetEmployeesAsync();
+    }
+
+    private async Task OnCourseChange()
+    {
+        if (selectedCourseId != 0)
+        {
+            await LoadEnrollments();
+        }
+        else
+        {
+            enrollments = null;
+        }
+    }
+
+    private async Task LoadEnrollments()
+    {
+         enrollments = await ClientService.GetEnrollmentsByCourseAsync(selectedCourseId);
+    }
+
+    private async Task EnrollEmployees()
+    {
+        if (selectedCourseId == 0 || !selectedEmployeeIds.Any()) return;
+
+        int successCount = 0;
+        int failCount = 0;
+
+        foreach (var empId in selectedEmployeeIds)
+        {
+            var enrollment = new Enrollment { CourseId = selectedCourseId, EmployeeId = empId };
+            try
+            {
+                await ClientService.EnrollEmployeeAsync(enrollment);
+                successCount++;
+            }
+            catch (Exception)
+            {
+                failCount++;
+            }
+        }
+
+        if (successCount > 0)
+        {
+            Snackbar.Add($"تم تسجيل {successCount} موظف بنجاح", Severity.Success);
+            await LoadEnrollments();
+            selectedEmployeeIds = new HashSet<int>(); // Reset selection
+        }
+
+        if (failCount > 0)
+        {
+            Snackbar.Add($"فشل تسجيل {failCount} موظف (ربما مسجلين مسبقاً)", Severity.Warning);
+        }
+    }
+
+    private async Task RemoveEnrollment(Enrollment enrollment)
+    {
+         bool? result = await DialogService.ShowMessageBox(
+            "تأكيد الإلغاء", 
+            "هل أنت متأكد من إلغاء تسجيل هذا الموظف؟", 
+            yesText:"إلغاء التسجيل", cancelText:"رجوع");
+
+        if (result == true)
+        {
+            await ClientService.RemoveEnrollmentAsync(enrollment.CourseId, enrollment.EmployeeId);
+            await LoadEnrollments();
+             Snackbar.Add("تم إلغاء التسجيل", Severity.Success);
+        }
+    }
+}
