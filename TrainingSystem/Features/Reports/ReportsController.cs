@@ -64,10 +64,12 @@ public class ReportsController : ControllerBase
         [FromQuery] DateTime? startDate, 
         [FromQuery] DateTime? endDate)
     {
-        var query = _context.AttendanceRecords
+        var attendanceRecords = await _context.AttendanceRecords
             .Include(a => a.Course)
             .Include(a => a.Employee)
-            .AsQueryable();
+            .ToListAsync();
+
+        IEnumerable<AttendanceRecord> query = attendanceRecords;
 
         if (courseId.HasValue)
             query = query.Where(a => a.CourseId == courseId.Value);
@@ -76,22 +78,28 @@ public class ReportsController : ControllerBase
             query = query.Where(a => a.EmployeeId == employeeId.Value);
 
         if (startDate.HasValue)
-            query = query.Where(a => a.Date >= startDate.Value);
+        {
+            var start = startDate.Value.Date;
+            query = query.Where(a => a.Date.Date >= start);
+        }
 
         if (endDate.HasValue)
-            query = query.Where(a => a.Date <= endDate.Value);
+        {
+            var end = endDate.Value.Date;
+            query = query.Where(a => a.Date.Date <= end);
+        }
 
-        var report = await query
+        var report = query
             .OrderByDescending(a => a.Date)
             .Select(a => new AttendanceReportDto
             {
                 Date = a.Date,
-                EmployeeName = a.Employee!.FullName,
-                CourseTitle = a.Course!.Title,
+                EmployeeName = a.Employee?.FullName ?? string.Empty,
+                CourseTitle = a.Course?.Title ?? string.Empty,
                 Status = a.Status.ToString(),
                 Notes = a.Notes
             })
-            .ToListAsync();
+            .ToList();
 
         return report;
     }

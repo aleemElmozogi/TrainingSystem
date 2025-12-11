@@ -36,7 +36,7 @@ public class AttendanceController : ControllerBase
         {
             if (!existingRecords.Any(r => r.EmployeeId == enrollment.EmployeeId))
             {
-                existingRecords.Add(new AttendanceRecord
+                var newRecord = new AttendanceRecord
                 {
                     CourseId = courseId,
                     EmployeeId = enrollment.EmployeeId,
@@ -44,9 +44,15 @@ public class AttendanceController : ControllerBase
                     Date = date,
                     Status = AttendanceStatus.Present,
                     Notes = ""
-                });
+                };
+                // Add to DB and to the list
+                await _context.AttendanceRecords.AddAsync(newRecord);
+                existingRecords.Add(newRecord);
             }
         }
+
+        // Save changes if any new records were added
+        await _context.SaveChangesAsync();
 
         return existingRecords.OrderBy(r => r.Employee?.FullName).ToList();
     }

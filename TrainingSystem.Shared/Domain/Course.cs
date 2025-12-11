@@ -1,6 +1,7 @@
 namespace TrainingSystem.Shared.Domain;
 
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 public enum CourseType
 {
@@ -34,5 +35,6 @@ public class Course
     public string Type { get; set; } = "Internal"; // Internal, External
     
     // Navigation
+    [JsonIgnore]
     public ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
 }

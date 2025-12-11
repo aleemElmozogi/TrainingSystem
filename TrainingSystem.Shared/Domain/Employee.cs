@@ -1,6 +1,7 @@
 namespace TrainingSystem.Shared.Domain;
 
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 public class Employee
 {
@@ -25,5 +26,6 @@ public class Employee
     public DateTime JoinedDate { get; set; } = DateTime.Now;
 
     // Navigation
+    [JsonIgnore]
     public ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
 }

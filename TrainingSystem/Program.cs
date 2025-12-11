@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContextFactory<AppDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
@@ -22,7 +22,7 @@ builder.Services.AddControllers()
     });
 
 // Register HttpClient and ClientService for Server-side rendering
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://localhost:5258") });
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://localhost:5270") });
 builder.Services.AddScoped<TrainingSystem.Client.Services.IClientService, TrainingSystem.Client.Services.ClientService>();
 builder.Services.AddMudServices();
 
