@@ -26,6 +26,54 @@
                         <MudItem xs="12">
                              <MudTextField Label="الوصف" Lines="3" @bind-Value="course.Description" For="@(() => course.Description)" Variant="Variant.Outlined" Margin="Margin.Dense" />
                         </MudItem>
+                        
+                        <!-- Training Plan Type Section -->
+                        <MudItem xs="12">
+                            <MudDivider Class="my-2" />
+                            <MudText Typo="Typo.h6" Class="mb-2">نوع الخطة التدريبية</MudText>
+                        </MudItem>
+                        
+                        <MudItem xs="12">
+                            <MudSelect T="CourseType?" Label="نوع البرنامج التدريبي" @bind-Value="selectedCourseType" Variant="Variant.Outlined" Margin="Margin.Dense" Required="true" RequiredError="يجب اختيار نوع البرنامج التدريبي">
+                                <MudSelectItem T="CourseType?" Value="@((CourseType?)CourseType.WeeklyPlan2021)">الخطة الاسبوعية لعام 20-21</MudSelectItem>
+                                <MudSelectItem T="CourseType?" Value="@((CourseType?)CourseType.ShortTermPlan)">خطة قصيرة الاجل</MudSelectItem>
+                            </MudSelect>
+                        </MudItem>
+                        
+                        @if (course.CourseType == CourseType.WeeklyPlan2021)
+                        {
+                            <MudItem xs="12">
+                                <MudAlert Severity="Severity.Success" Dense="true" Icon="@Icons.Material.Filled.Groups">
+                                    <strong>الخطة الاسبوعية لعام 20-21:</strong> برنامج تدريبي طويل الأجل موجه لجميع الموظفين بمدة محددة
+                                    <br/>
+                                    <small>• الفئة المستهدفة: جميع الموظفين</small>
+                                </MudAlert>
+                            </MudItem>
+                        }
+                        else if (course.CourseType == CourseType.ShortTermPlan)
+                        {
+                            <MudItem xs="12">
+                                <MudAlert Severity="Severity.Warning" Dense="true" Icon="@Icons.Material.Filled.PersonSearch">
+                                    <strong>خطة قصيرة الاجل:</strong> برنامج تدريبي قصير الأجل موجه لموظفين محددين بمدة مرنة
+                                    <br/>
+                                    <small>• الفئة المستهدفة: موظفين محددين</small>
+                                </MudAlert>
+                            </MudItem>
+                        }
+                        
+                        <MudItem xs="12">
+                            <MudSelect T="TargetAudience?" Label="الفئة المستهدفة" @bind-Value="course.TargetAudience" Variant="Variant.Outlined" Margin="Margin.Dense" Disabled="true" HelperText="يتم تحديد الفئة المستهدفة تلقائياً بناءً على نوع البرنامج التدريبي">
+                                <MudSelectItem T="TargetAudience?" Value="@((TargetAudience?)TargetAudience.AllEmployees)">جميع الموظفين</MudSelectItem>
+                                <MudSelectItem T="TargetAudience?" Value="@((TargetAudience?)TargetAudience.SpecificEmployees)">موظفين محددين</MudSelectItem>
+                            </MudSelect>
+                        </MudItem>
+                        
+                        <!-- Course Details Section -->
+                        <MudItem xs="12">
+                            <MudDivider Class="my-2" />
+                            <MudText Typo="Typo.h6" Class="mb-2">تفاصيل الدورة</MudText>
+                        </MudItem>
+                        
                         <MudItem xs="12" md="6">
                              <MudTextField Label="جهة التنفيذ" @bind-Value="course.Provider" For="@(() => course.Provider)" Variant="Variant.Outlined" Margin="Margin.Dense" />
                         </MudItem>
@@ -35,7 +83,7 @@
                         <MudItem xs="12" md="6">
                              <MudDatePicker Label="تاريخ السفر" @bind-Date="travelDate" Variant="Variant.Outlined" Margin="Margin.Dense" />
                         </MudItem>
-                        <MudItem xs="12">
+                        <MudItem xs="12" md="6">
                             <MudSelect Label="النوع" @bind-Value="course.Type" Variant="Variant.Outlined" Margin="Margin.Dense">
                                 <MudSelectItem Value="@("Internal")">داخلي</MudSelectItem>
                                 <MudSelectItem Value="@("External")">خارجي</MudSelectItem>
@@ -64,6 +112,28 @@
     public int Id { get; set; }
 
     private Course? course;
+
+    // Property to handle course type selection and auto-update target audience
+    private CourseType? selectedCourseType
+    {
+        get => course?.CourseType;
+        set
+        {
+            if (course != null)
+            {
+                course.CourseType = value;
+                // Automatically set target audience based on course type
+                if (value == CourseType.WeeklyPlan2021)
+                {
+                    course.TargetAudience = TargetAudience.AllEmployees;
+                }
+                else if (value == CourseType.ShortTermPlan)
+                {
+                    course.TargetAudience = TargetAudience.SpecificEmployees;
+                }
+            }
+        }
+    }
 
     // MudDatePicker helper properties
     private DateTime? startDate 

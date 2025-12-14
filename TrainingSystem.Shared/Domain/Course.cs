@@ -5,8 +5,14 @@ using System.Text.Json.Serialization;
 
 public enum CourseType
 {
-    ShortTerm,
-    LongTerm
+    WeeklyPlan2021,  // الخطة الاسبوعية لعام 20-21 - Two-week program for all employees
+    ShortTermPlan    // خطة قصيرة الاجل - Short-term program for specific employees
+}
+
+public enum TargetAudience
+{
+    AllEmployees,      // جميع الموظفين
+    SpecificEmployees  // موظفين محددين
 }
 
 public class Course
@@ -33,6 +39,10 @@ public class Course
     public string Provider { get; set; } = string.Empty;
 
     public string Type { get; set; } = "Internal"; // Internal, External
+    
+    public CourseType? CourseType { get; set; }
+    
+    public TargetAudience? TargetAudience { get; set; }
     
     // Navigation
     [JsonIgnore]

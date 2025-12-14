@@ -18,46 +18,263 @@
     }
     else
     {
-        <MudTable Items="@courses" Hover="true" Breakpoint="Breakpoint.Sm" Elevation="0" Outlined="true" Striped="true">
-            <HeaderContent>
-                <MudTh>العنوان</MudTh>
-                <MudTh>النوع</MudTh>
-                <MudTh>جهة التنفيذ</MudTh>
-                <MudTh>المدة</MudTh>
-                <MudTh>تاريخ السفر</MudTh>
-                <MudTh>تاريخ البدء</MudTh>
-                <MudTh>تاريخ الانتهاء</MudTh>
-                <MudTh Style="text-align:end">الإجراءات</MudTh>
-            </HeaderContent>
-            <RowTemplate>
-                <MudTd DataLabel="العنوان">
-                     <MudText Typo="Typo.body2" Style="font-weight: 600;">@context.Title</MudText>
-                     <MudText Typo="Typo.caption" Class="text-muted">@context.Description</MudText>
-                </MudTd>
-                <MudTd DataLabel="النوع">
-                     <MudChip T="string" Size="Size.Small" Color="@(context.Type == "Internal" ? Color.Info : Color.Warning)" Variant="Variant.Text">@context.Type</MudChip>
-                </MudTd>
-                <MudTd DataLabel="جهة التنفيذ">@context.Provider</MudTd>
-                <MudTd DataLabel="المدة">@context.Duration</MudTd>
-                <MudTd DataLabel="السفر">@(context.TravelDate?.ToShortDateString() ?? "-")</MudTd>
-                <MudTd DataLabel="البدء">@context.StartDate.ToShortDateString()</MudTd>
-                <MudTd DataLabel="الانتهاء">@context.EndDate.ToShortDateString()</MudTd>
-                <MudTd DataLabel="الإجراءات" Style="text-align:end">
-                    <MudIconButton Icon="@Icons.Material.Filled.Edit" Size="Size.Small" Color="Color.Default" Href="@($"courses/edit/{context.Id}")" />
-                    <MudIconButton Icon="@Icons.Material.Filled.Delete" Size="Size.Small" Color="Color.Error" OnClick="@(() => DeleteCourse(context.Id))" />
-                </MudTd>
-            </RowTemplate>
-        </MudTable>
+        <MudTabs Elevation="2" Rounded="true" ApplyEffectsToContainer="true" PanelClass="pa-6" @bind-ActivePanelIndex="activeTab">
+            <MudTabPanel Text="جميع الدورات" Icon="@Icons.Material.Filled.List">
+                <MudAlert Severity="Severity.Info" Class="mb-4" Icon="@Icons.Material.Filled.Info">
+                    <strong>عرض جميع الدورات التدريبية في النظام</strong>
+                    <br/>
+                    <small>يتضمن كلاً من الخطة الاسبوعية لعام 20-21 والخطة قصيرة الاجل</small>
+                </MudAlert>
+                @RenderCourseTable(courses)
+            </MudTabPanel>
+            
+            <MudTabPanel Text="الخطة الاسبوعية لعام 20-21" Icon="@Icons.Material.Filled.Groups">
+                <MudAlert Severity="Severity.Success" Class="mb-4" Icon="@Icons.Material.Filled.CalendarMonth">
+                    <strong>الخطة الاسبوعية لعام 20-21</strong>
+                    <br/>
+                    <small>• برنامج تدريبي طويل الأجل موجه لجميع الموظفين بمدة محددة</small>
+                    <br/>
+                    <small>• الفئة المستهدفة: جميع الموظفين</small>
+                </MudAlert>
+                @RenderCourseTable(weeklyPlanCourses)
+            </MudTabPanel>
+            
+            <MudTabPanel Text="خطة قصيرة الاجل" Icon="@Icons.Material.Filled.PersonSearch">
+                <MudAlert Severity="Severity.Warning" Class="mb-4" Icon="@Icons.Material.Filled.Speed">
+                    <strong>خطة قصيرة الاجل</strong>
+                    <br/>
+                    <small>• برنامج تدريبي قصير الأجل موجه لموظفين محددين بمدة مرنة</small>
+                    <br/>
+                    <small>• الفئة المستهدفة: موظفين محددين</small>
+                </MudAlert>
+                @RenderCourseTable(shortTermPlanCourses)
+            </MudTabPanel>
+        </MudTabs>
     }
 </MudContainer>
 
 @code {
     private List<Course>? courses;
+    private int activeTab = 0;
+
+    private List<Course> weeklyPlanCourses => 
+        courses?.Where(c => c.CourseType == CourseType.WeeklyPlan2021).ToList() ?? new List<Course>();
+    
+    private List<Course> shortTermPlanCourses => 
+        courses?.Where(c => c.CourseType == CourseType.ShortTermPlan).ToList() ?? new List<Course>();
 
     protected override async Task OnInitializedAsync()
     {
         courses = await ClientService.GetCoursesAsync();
     }
+
+    private RenderFragment RenderCourseTable(List<Course> courseList) => builder =>
+    {
+        if (courseList.Count == 0)
+        {
+            builder.OpenComponent<MudText>(0);
+            builder.AddAttribute(1, "Typo", Typo.body1);
+            builder.AddAttribute(2, "Class", "text-center pa-4");
+            builder.AddAttribute(3, "ChildContent", (RenderFragment)((b) => b.AddContent(4, "لا توجد دورات في هذه الفئة")));
+            builder.CloseComponent();
+        }
+        else
+        {
+            builder.OpenComponent<MudTable<Course>>(0);
+            builder.AddAttribute(1, "Items", courseList);
+            builder.AddAttribute(2, "Hover", true);
+            builder.AddAttribute(3, "Breakpoint", Breakpoint.Sm);
+            builder.AddAttribute(4, "Elevation", 0);
+            builder.AddAttribute(5, "Outlined", true);
+            builder.AddAttribute(6, "Striped", true);
+            
+            builder.AddAttribute(7, "HeaderContent", (RenderFragment<MudTable<Course>>)((table) => (headerBuilder) =>
+            {
+                headerBuilder.OpenComponent<MudTh>(0);
+                headerBuilder.AddAttribute(1, "ChildContent", (RenderFragment)((b) => b.AddContent(2, "العنوان")));
+                headerBuilder.CloseComponent();
+                
+                headerBuilder.OpenComponent<MudTh>(3);
+                headerBuilder.AddAttribute(4, "ChildContent", (RenderFragment)((b) => b.AddContent(5, "نوع البرنامج")));
+                headerBuilder.CloseComponent();
+                
+                headerBuilder.OpenComponent<MudTh>(6);
+                headerBuilder.AddAttribute(7, "ChildContent", (RenderFragment)((b) => b.AddContent(8, "الفئة المستهدفة")));
+                headerBuilder.CloseComponent();
+                
+                headerBuilder.OpenComponent<MudTh>(9);
+                headerBuilder.AddAttribute(10, "ChildContent", (RenderFragment)((b) => b.AddContent(11, "النوع")));
+                headerBuilder.CloseComponent();
+                
+                headerBuilder.OpenComponent<MudTh>(12);
+                headerBuilder.AddAttribute(13, "ChildContent", (RenderFragment)((b) => b.AddContent(14, "جهة التنفيذ")));
+                headerBuilder.CloseComponent();
+                
+                headerBuilder.OpenComponent<MudTh>(15);
+                headerBuilder.AddAttribute(16, "ChildContent", (RenderFragment)((b) => b.AddContent(17, "المدة")));
+                headerBuilder.CloseComponent();
+                
+                headerBuilder.OpenComponent<MudTh>(18);
+                headerBuilder.AddAttribute(19, "ChildContent", (RenderFragment)((b) => b.AddContent(20, "تاريخ السفر")));
+                headerBuilder.CloseComponent();
+                
+                headerBuilder.OpenComponent<MudTh>(21);
+                headerBuilder.AddAttribute(22, "ChildContent", (RenderFragment)((b) => b.AddContent(23, "تاريخ البدء")));
+                headerBuilder.CloseComponent();
+                
+                headerBuilder.OpenComponent<MudTh>(24);
+                headerBuilder.AddAttribute(25, "ChildContent", (RenderFragment)((b) => b.AddContent(26, "تاريخ الانتهاء")));
+                headerBuilder.CloseComponent();
+                
+                headerBuilder.OpenComponent<MudTh>(27);
+                headerBuilder.AddAttribute(28, "Style", "text-align:end");
+                headerBuilder.AddAttribute(29, "ChildContent", (RenderFragment)((b) => b.AddContent(30, "الإجراءات")));
+                headerBuilder.CloseComponent();
+            }));
+            
+            builder.AddAttribute(8, "RowTemplate", (RenderFragment<Course>)((context) => (rowBuilder) =>
+            {
+                // العنوان
+                rowBuilder.OpenComponent<MudTd>(0);
+                rowBuilder.AddAttribute(1, "DataLabel", "العنوان");
+                rowBuilder.AddAttribute(2, "ChildContent", (RenderFragment)((b) =>
+                {
+                    b.OpenComponent<MudText>(0);
+                    b.AddAttribute(1, "Typo", Typo.body2);
+                    b.AddAttribute(2, "Style", "font-weight: 600;");
+                    b.AddAttribute(3, "ChildContent", (RenderFragment)((tb) => tb.AddContent(4, context.Title)));
+                    b.CloseComponent();
+                    
+                    b.OpenComponent<MudText>(5);
+                    b.AddAttribute(6, "Typo", Typo.caption);
+                    b.AddAttribute(7, "Class", "text-muted");
+                    b.AddAttribute(8, "ChildContent", (RenderFragment)((tb) => tb.AddContent(9, context.Description)));
+                    b.CloseComponent();
+                }));
+                rowBuilder.CloseComponent();
+                
+                // نوع البرنامج
+                rowBuilder.OpenComponent<MudTd>(3);
+                rowBuilder.AddAttribute(4, "DataLabel", "نوع البرنامج");
+                rowBuilder.AddAttribute(5, "ChildContent", (RenderFragment)((b) =>
+                {
+                    if (context.CourseType.HasValue)
+                    {
+                        b.OpenComponent<MudChip<string>>(0);
+                        b.AddAttribute(1, "Size", Size.Small);
+                        b.AddAttribute(2, "Color", context.CourseType == CourseType.WeeklyPlan2021 ? Color.Primary : Color.Secondary);
+                        b.AddAttribute(3, "Variant", Variant.Text);
+                        b.AddAttribute(4, "ChildContent", (RenderFragment)((cb) => 
+                            cb.AddContent(5, context.CourseType == CourseType.WeeklyPlan2021 ? "الخطة الاسبوعية لعام 20-21" : "خطة قصيرة الاجل")));
+                        b.CloseComponent();
+                    }
+                    else
+                    {
+                        b.OpenComponent<MudText>(0);
+                        b.AddAttribute(1, "Typo", Typo.caption);
+                        b.AddAttribute(2, "Class", "text-muted");
+                        b.AddAttribute(3, "ChildContent", (RenderFragment)((tb) => tb.AddContent(4, "-")));
+                        b.CloseComponent();
+                    }
+                }));
+                rowBuilder.CloseComponent();
+                
+                // الفئة المستهدفة
+                rowBuilder.OpenComponent<MudTd>(6);
+                rowBuilder.AddAttribute(7, "DataLabel", "الفئة المستهدفة");
+                rowBuilder.AddAttribute(8, "ChildContent", (RenderFragment)((b) =>
+                {
+                    if (context.TargetAudience.HasValue)
+                    {
+                        b.OpenComponent<MudChip<string>>(0);
+                        b.AddAttribute(1, "Size", Size.Small);
+                        b.AddAttribute(2, "Color", context.TargetAudience == TargetAudience.AllEmployees ? Color.Success : Color.Info);
+                        b.AddAttribute(3, "Variant", Variant.Text);
+                        b.AddAttribute(4, "ChildContent", (RenderFragment)((cb) => 
+                            cb.AddContent(5, context.TargetAudience == TargetAudience.AllEmployees ? "جميع الموظفين" : "موظفين محددين")));
+                        b.CloseComponent();
+                    }
+                    else
+                    {
+                        b.OpenComponent<MudText>(0);
+                        b.AddAttribute(1, "Typo", Typo.caption);
+                        b.AddAttribute(2, "Class", "text-muted");
+                        b.AddAttribute(3, "ChildContent", (RenderFragment)((tb) => tb.AddContent(4, "-")));
+                        b.CloseComponent();
+                    }
+                }));
+                rowBuilder.CloseComponent();
+                
+                // النوع
+                rowBuilder.OpenComponent<MudTd>(9);
+                rowBuilder.AddAttribute(10, "DataLabel", "النوع");
+                rowBuilder.AddAttribute(11, "ChildContent", (RenderFragment)((b) =>
+                {
+                    b.OpenComponent<MudChip<string>>(0);
+                    b.AddAttribute(1, "Size", Size.Small);
+                    b.AddAttribute(2, "Color", context.Type == "Internal" ? Color.Info : Color.Warning);
+                    b.AddAttribute(3, "Variant", Variant.Text);
+                    b.AddAttribute(4, "ChildContent", (RenderFragment)((cb) => cb.AddContent(5, context.Type)));
+                    b.CloseComponent();
+                }));
+                rowBuilder.CloseComponent();
+                
+                // جهة التنفيذ
+                rowBuilder.OpenComponent<MudTd>(12);
+                rowBuilder.AddAttribute(13, "DataLabel", "جهة التنفيذ");
+                rowBuilder.AddAttribute(14, "ChildContent", (RenderFragment)((b) => b.AddContent(15, context.Provider)));
+                rowBuilder.CloseComponent();
+                
+                // المدة
+                rowBuilder.OpenComponent<MudTd>(16);
+                rowBuilder.AddAttribute(17, "DataLabel", "المدة");
+                rowBuilder.AddAttribute(18, "ChildContent", (RenderFragment)((b) => b.AddContent(19, context.Duration)));
+                rowBuilder.CloseComponent();
+                
+                // تاريخ السفر
+                rowBuilder.OpenComponent<MudTd>(20);
+                rowBuilder.AddAttribute(21, "DataLabel", "السفر");
+                rowBuilder.AddAttribute(22, "ChildContent", (RenderFragment)((b) => b.AddContent(23, context.TravelDate?.ToShortDateString() ?? "-")));
+                rowBuilder.CloseComponent();
+                
+                // تاريخ البدء
+                rowBuilder.OpenComponent<MudTd>(24);
+                rowBuilder.AddAttribute(25, "DataLabel", "البدء");
+                rowBuilder.AddAttribute(26, "ChildContent", (RenderFragment)((b) => b.AddContent(27, context.StartDate.ToShortDateString())));
+                rowBuilder.CloseComponent();
+                
+                // تاريخ الانتهاء
+                rowBuilder.OpenComponent<MudTd>(28);
+                rowBuilder.AddAttribute(29, "DataLabel", "الانتهاء");
+                rowBuilder.AddAttribute(30, "ChildContent", (RenderFragment)((b) => b.AddContent(31, context.EndDate.ToShortDateString())));
+                rowBuilder.CloseComponent();
+                
+                // الإجراءات
+                rowBuilder.OpenComponent<MudTd>(32);
+                rowBuilder.AddAttribute(33, "DataLabel", "الإجراءات");
+                rowBuilder.AddAttribute(34, "Style", "text-align:end");
+                rowBuilder.AddAttribute(35, "ChildContent", (RenderFragment)((b) =>
+                {
+                    b.OpenComponent<MudIconButton>(0);
+                    b.AddAttribute(1, "Icon", Icons.Material.Filled.Edit);
+                    b.AddAttribute(2, "Size", Size.Small);
+                    b.AddAttribute(3, "Color", Color.Default);
+                    b.AddAttribute(4, "Href", $"courses/edit/{context.Id}");
+                    b.CloseComponent();
+                    
+                    b.OpenComponent<MudIconButton>(5);
+                    b.AddAttribute(6, "Icon", Icons.Material.Filled.Delete);
+                    b.AddAttribute(7, "Size", Size.Small);
+                    b.AddAttribute(8, "Color", Color.Error);
+                    b.AddAttribute(9, "OnClick", EventCallback.Factory.Create(this, () => DeleteCourse(context.Id)));
+                    b.CloseComponent();
+                }));
+                rowBuilder.CloseComponent();
+            }));
+            
+            builder.CloseComponent();
+        }
+    };
 
     private async Task DeleteCourse(int id)
     {
