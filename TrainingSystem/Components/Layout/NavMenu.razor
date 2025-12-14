@@ -11,6 +11,12 @@
     </MudNavGroup>
     
     <MudText Typo="Typo.caption" Class="px-4 mt-6 mb-2 text-muted" Style="color: #9CA3AF; font-weight: bold;">التدريب</MudText>
-    <MudNavLink Href="courses" Icon="@Icons.Material.Filled.School">الدورات التدريبية</MudNavLink>
+    
+    <MudNavGroup Title="التدريب" Icon="@Icons.Material.Filled.School" Expanded="true">
+        <MudNavLink Href="courses/weekly-plan-2021" Icon="@Icons.Material.Filled.CalendarMonth">الخطة التدريبية لعام 20-21</MudNavLink>
+        <MudNavLink Href="courses/short-term-plan" Icon="@Icons.Material.Filled.Speed">خطة قصيرة الأجل</MudNavLink>
+    </MudNavGroup>
+    
+    <MudText Typo="Typo.caption" Class="px-4 mt-6 mb-2 text-muted" Style="color: #9CA3AF; font-weight: bold;">التقارير</MudText>
     <MudNavLink Href="reports" Icon="@Icons.Material.Filled.Assessment">التقارير</MudNavLink>
 </MudNavMenu>

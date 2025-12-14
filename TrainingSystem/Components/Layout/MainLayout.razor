@@ -7,12 +7,11 @@
 <MudSnackbarProvider />
 <MudRTLProvider RightToLeft="true">
     <MudLayout>
-        <MudAppBar Elevation="0" Color="Color.Transparent" Fixed="true" Class="border-b mud-theme-border-color backdrop-blur">
+        <MudAppBar Elevation="1" Color="Color.Surface" Fixed="true" Class="border-b mud-theme-border-color">
             <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Primary" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
             
             <!-- Breadcrumbs / Title Area -->
             <div class="d-flex flex-column ml-4">
-                 <MudBreadcrumbs Items="_breadcrumbs" Separator=">" Class="pa-0 f-12 text-muted" />
                  <MudText Typo="Typo.h6" Class="mud-text-primary" Style="font-weight: 700;">نظام إدارة التدريب</MudText>
             </div>
 
@@ -20,16 +19,16 @@
             
             <!-- Top Actions -->
             <MudIconButton Icon="@Icons.Material.Filled.NotificationsNone" Color="Color.Default" />
-            <MudAvatar Class="course-avatar ml-3" Color="Color.Primary" Variant="Variant.Outlined">ع</MudAvatar>
+            <MudAvatar Class="course-avatar ml-3" Color="Color.Primary" Variant="Variant.Outlined">ر</MudAvatar>
             <div class="d-flex flex-column mr-2">
-                <MudText Typo="Typo.caption" Class="mud-text-primary" Style="font-weight: bold;">المدير العام</MudText>
-                <MudText Typo="Typo.caption" Class="mud-text-secondary">الموارد البشرية</MudText>
+                <MudText Typo="Typo.caption" Class="mud-text-primary" Style="font-weight: bold;">رئيس القسم</MudText>
+                <MudText Typo="Typo.caption" Class="mud-text-secondary">التدريب الخارجي</MudText>
             </div>
         </MudAppBar>
 
-        <MudDrawer @bind-Open="_drawerOpen" ClipMode="DrawerClipMode.Always" Elevation="0" Breakpoint="Breakpoint.Md" Class="border-e mud-theme-border-color">
+        <MudDrawer @bind-Open="_drawerOpen" ClipMode="DrawerClipMode.Always" Elevation="0" Breakpoint="Breakpoint.Md" Class="border-e mud-theme-border-color" Style="overflow-x: hidden;">
             <MudDrawerHeader Class="d-flex align-center justify-center py-4">
-                 <img src="images/logo.png" alt="شركة البريقة لتسويق النفط" style="max-width: 200px; height: auto;" />
+                 <img src="@(_isDarkMode ? "images/logo-white.png" : "images/logo.png")" alt="شركة البريقة لتسويق النفط" style="max-width: 80%; max-height: 80px; width: auto; height: auto;" />
             </MudDrawerHeader>
             <NavMenu />
             
@@ -91,6 +90,22 @@
     }
     .mud-nav-link.active .mud-nav-link-icon {
         color: #594AE2 !important;
+    }
+
+    /* Dark Mode Nav Link Overrides */
+    .mud-theme-dark .mud-nav-link {
+        color: #ADADB8 !important;
+    }
+    .mud-theme-dark .mud-nav-link:hover {
+        background-color: #2B2B40 !important;
+        color: #FFFFFF !important;
+    }
+    .mud-theme-dark .mud-nav-link.active {
+        background-color: #323248 !important; /* Dark purple/gray for active */
+        color: #7E6FFF !important; /* Light Purple text */
+    }
+    .mud-theme-dark .mud-nav-link.active .mud-nav-link-icon {
+        color: #7E6FFF !important;
     }
 </style>
 
@@ -175,7 +190,7 @@
         {
             Primary = "#3B82F6", // Lighter Blue for Dark Mode
             Secondary = "#FF4081",
-            AppbarBackground = "#1E1E2D00", // Transparent
+            AppbarBackground = "#1E1E2D", // Solid Dark
             Background = "#151521",
             DrawerBackground = "#1E1E2D",
             Surface = "#1E1E2D",

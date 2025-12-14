@@ -60,7 +60,9 @@ public class StatsController : ControllerBase
         for (int i = 5; i >= 0; i--)
         {
             var d = DateTime.Now.AddMonths(-i);
-            var monthName = d.ToString("MMM", new System.Globalization.CultureInfo("ar-SA"));
+            // Arabic Gregorian Month Names
+            var arabicMonths = new[] { "يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر" };
+            var monthName = arabicMonths[d.Month - 1];
             labels.Add(monthName);
             
             var existing = courseData.FirstOrDefault(x => x.Date.Month == d.Month && x.Date.Year == d.Year);
