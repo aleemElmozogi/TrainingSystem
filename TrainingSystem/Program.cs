@@ -5,11 +5,23 @@ using MudBlazor.Services;
 using Microsoft.EntityFrameworkCore;
 using TrainingSystem.Data;
 
+// Register encoding provider for Arabic CSV support
+System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContextFactory<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Seed Data
+using (var scope = builder.Services.BuildServiceProvider().CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var factory = services.GetRequiredService<IDbContextFactory<AppDbContext>>();
+    using var context = factory.CreateDbContext();
+    DbInitializer.Initialize(context);
+}
 
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()

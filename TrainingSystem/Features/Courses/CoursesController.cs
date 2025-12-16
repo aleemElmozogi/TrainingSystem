@@ -19,7 +19,10 @@ public class CoursesController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<List<Course>>> GetCourses()
     {
-        return await _context.Courses.ToListAsync();
+        return await _context.Courses
+            .Include(c => c.Enrollments)
+            .ThenInclude(e => e.Employee)
+            .ToListAsync();
     }
 
     [HttpPost]
