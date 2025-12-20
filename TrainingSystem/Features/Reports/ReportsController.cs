@@ -31,7 +31,9 @@ public class ReportsController : ControllerBase
                 EmploymentNumber = e.Employee.EmploymentNumber,
                 Department = e.Employee.Department,
                 JobTitle = e.Employee.JobTitle,
-                JoinedDate = e.Employee.JoinedDate
+                JoinedDate = e.Employee.JoinedDate,
+                Country = e.Country,
+                Duration = e.Duration
             })
             .ToListAsync();
 
@@ -50,7 +52,9 @@ public class ReportsController : ControllerBase
                 CourseTitle = e.Course!.Title,
                 StartDate = e.Course.StartDate,
                 EndDate = e.Course.EndDate,
-                Status = DateTime.Now > e.Course.EndDate ? "Completed" : "Active"
+                Status = (e.Course.EndDate.HasValue && DateTime.Now > e.Course.EndDate) ? "Completed" : "Active",
+                Country = e.Country,
+                Duration = e.Duration
             })
             .ToListAsync();
 
@@ -67,7 +71,13 @@ public class ReportsController : ControllerBase
         var attendanceRecords = await _context.AttendanceRecords
             .Include(a => a.Course)
             .Include(a => a.Employee)
+            .AsNoTracking() // added performance
             .ToListAsync();
+
+        // Performance Note: Doing join in memory for simpler LINQ translation if huge data isn't expected, 
+        // OR better: use LINQ Query Syntax to join Enrollments.
+        // For now, let's pre-fetch Enrollments if courseId is filtered, or use sub-select if small.
+        // Given existing structure, let's use a separate lookup for efficiency if needed.
 
         IEnumerable<AttendanceRecord> query = attendanceRecords;
 
@@ -80,24 +90,39 @@ public class ReportsController : ControllerBase
         if (startDate.HasValue)
         {
             var start = startDate.Value.Date;
-            query = query.Where(a => a.Date.Date >= start);
+            query = query.Where(a => a.Date.HasValue && a.Date.Value.Date >= start);
         }
 
         if (endDate.HasValue)
         {
             var end = endDate.Value.Date;
-            query = query.Where(a => a.Date.Date <= end);
+            query = query.Where(a => a.Date.HasValue && a.Date.Value.Date <= end);
         }
 
+        // Fetch Enrollments to map details
+        // We get distinct pairs of CourseId/EmployeeId from the result
+        var pairs = query.Select(x => new { x.CourseId, x.EmployeeId }).Distinct().ToList();
+        
+        // This is not efficient for ALL records, but okay for report scope usually.
+        // Better: Fetch all enrollments matching the criteria.
+        var enrollments = await _context.Enrollments.ToListAsync(); 
+        // Optimization: if courseId is passed, filter.
+        
         var report = query
             .OrderByDescending(a => a.Date)
-            .Select(a => new AttendanceReportDto
+            .Select(a => 
             {
-                Date = a.Date,
-                EmployeeName = a.Employee?.FullName ?? string.Empty,
-                CourseTitle = a.Course?.Title ?? string.Empty,
-                Status = a.Status.ToString(),
-                Notes = a.Notes
+                var enroll = enrollments.FirstOrDefault(e => e.CourseId == a.CourseId && e.EmployeeId == a.EmployeeId);
+                return new AttendanceReportDto
+                {
+                    Date = a.Date,
+                    DayNumber = a.DayNumber,
+                    EmployeeName = a.Employee?.FullName ?? string.Empty,
+                    CourseTitle = a.Course?.Title ?? string.Empty,
+                    Status = a.Status.ToString(),
+                    Notes = a.Notes,
+                    Country = enroll?.Country
+                };
             })
             .ToList();
 
@@ -125,6 +150,8 @@ public class ReportsController : ControllerBase
         worksheet.Cell(1, 3).Value = "القسم";
         worksheet.Cell(1, 4).Value = "المسمى الوظيفي";
         worksheet.Cell(1, 5).Value = "تاريخ الانضمام";
+        worksheet.Cell(1, 6).Value = "الدولة";
+        worksheet.Cell(1, 7).Value = "المدة";
 
         var headerRow = worksheet.Row(1);
         headerRow.Style.Font.Bold = true;
@@ -137,7 +164,9 @@ public class ReportsController : ControllerBase
             worksheet.Cell(row, 2).Value = item.EmploymentNumber;
             worksheet.Cell(row, 3).Value = item.Department;
             worksheet.Cell(row, 4).Value = item.JobTitle;
-            worksheet.Cell(row, 5).Value = item.JoinedDate.ToShortDateString();
+            worksheet.Cell(row, 5).Value = item.JoinedDate.ToString("yyyy/MM/dd");
+            worksheet.Cell(row, 6).Value = item.Country;
+            worksheet.Cell(row, 7).Value = item.Duration;
             row++;
         }
 
@@ -167,6 +196,8 @@ public class ReportsController : ControllerBase
         worksheet.Cell(1, 2).Value = "تاريخ البدء";
         worksheet.Cell(1, 3).Value = "تاريخ الانتهاء";
         worksheet.Cell(1, 4).Value = "الحالة";
+        worksheet.Cell(1, 5).Value = "الدولة";
+        worksheet.Cell(1, 6).Value = "المدة";
 
         var headerRow = worksheet.Row(1);
         headerRow.Style.Font.Bold = true;
@@ -176,9 +207,11 @@ public class ReportsController : ControllerBase
         foreach (var item in list)
         {
             worksheet.Cell(row, 1).Value = item.CourseTitle;
-            worksheet.Cell(row, 2).Value = item.StartDate.ToShortDateString();
-            worksheet.Cell(row, 3).Value = item.EndDate.ToShortDateString();
+            worksheet.Cell(row, 2).Value = item.StartDate?.ToString("yyyy/MM/dd") ?? "-";
+            worksheet.Cell(row, 3).Value = item.EndDate?.ToString("yyyy/MM/dd") ?? "-";
             worksheet.Cell(row, 4).Value = item.Status; // Translate if needed
+            worksheet.Cell(row, 5).Value = item.Country;
+            worksheet.Cell(row, 6).Value = item.Duration;
             row++;
         }
 
@@ -205,11 +238,12 @@ public class ReportsController : ControllerBase
         var worksheet = workbook.Worksheets.Add("Attendance");
         worksheet.RightToLeft = true;
 
-        worksheet.Cell(1, 1).Value = "التاريخ";
+        worksheet.Cell(1, 1).Value = "اليوم / التاريخ";
         worksheet.Cell(1, 2).Value = "الموظف";
         worksheet.Cell(1, 3).Value = "الدورة";
         worksheet.Cell(1, 4).Value = "الحالة";
         worksheet.Cell(1, 5).Value = "ملاحظات";
+        worksheet.Cell(1, 6).Value = "الدولة";
 
         var headerRow = worksheet.Row(1);
         headerRow.Style.Font.Bold = true;
@@ -218,11 +252,24 @@ public class ReportsController : ControllerBase
         int row = 2;
         foreach (var item in list)
         {
-            worksheet.Cell(row, 1).Value = item.Date.ToShortDateString();
+            worksheet.Cell(row, 1).Value = item.Date.HasValue 
+                ? item.Date.Value.ToString("yyyy/MM/dd") 
+                : $"اليوم {item.DayNumber}";
             worksheet.Cell(row, 2).Value = item.EmployeeName;
             worksheet.Cell(row, 3).Value = item.CourseTitle;
-            worksheet.Cell(row, 4).Value = item.Status == "Present" ? "حاضر" : (item.Status == "Absent" ? "غائب" : "معذور");
+            string statusText = item.Status switch
+            {
+                "Present" => "حاضر",
+                "Absent" => "غائب",
+                "Excused" => "غائب بعذر",
+                "NotArrived" => "لم يصل",
+                "Holiday" => "عطلة",
+                "EmergencyHoliday" => "عطلة طارئة",
+                _ => item.Status
+            };
+            worksheet.Cell(row, 4).Value = statusText;
             worksheet.Cell(row, 5).Value = item.Notes;
+            worksheet.Cell(row, 6).Value = item.Country; // Export Country
             row++;
         }
 

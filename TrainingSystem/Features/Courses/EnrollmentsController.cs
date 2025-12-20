@@ -19,14 +19,14 @@ public class EnrollmentsController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<Enrollment>> EnrollEmployee(Enrollment enrollment)
     {
-        // Check if already enrolled
-        var exists = await _context.Enrollments
-            .AnyAsync(e => e.CourseId == enrollment.CourseId && e.EmployeeId == enrollment.EmployeeId);
+        // Check if already enrolled - DISABLED to allow duplicates
+        // var exists = await _context.Enrollments
+        //    .AnyAsync(e => e.CourseId == enrollment.CourseId && e.EmployeeId == enrollment.EmployeeId);
 
-        if (exists)
-        {
-            return Conflict("Employee is already enrolled in this course.");
-        }
+        // if (exists)
+        // {
+        //    return Conflict("Employee is already enrolled in this course.");
+        // }
 
         _context.Enrollments.Add(enrollment);
         await _context.SaveChangesAsync();

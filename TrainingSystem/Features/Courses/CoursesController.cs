@@ -37,7 +37,10 @@ public class CoursesController : ControllerBase
     [HttpGet("{id}")]
     public async Task<ActionResult<Course>> GetCourse(int id)
     {
-        var course = await _context.Courses.FindAsync(id);
+        var course = await _context.Courses
+            .Include(c => c.Enrollments)
+            .FirstOrDefaultAsync(c => c.Id == id); // Fixed: Include Enrollments
+            
         if (course == null) return NotFound();
         return course;
     }
@@ -46,7 +49,34 @@ public class CoursesController : ControllerBase
     public async Task<IActionResult> UpdateCourse(int id, Course course)
     {
         if (id != course.Id) return BadRequest();
-        _context.Entry(course).State = EntityState.Modified;
+
+        var existingCourse = await _context.Courses
+            .Include(c => c.Enrollments)
+            .FirstOrDefaultAsync(c => c.Id == id);
+
+        if (existingCourse == null) return NotFound();
+
+        // Update properties
+        _context.Entry(existingCourse).CurrentValues.SetValues(course);
+
+        // Update Enrollments
+        // clear existing
+        existingCourse.Enrollments.Clear();
+        // add new
+        if (course.Enrollments != null)
+        {
+            foreach (var enrollment in course.Enrollments)
+            {
+                 existingCourse.Enrollments.Add(new Enrollment 
+                 { 
+                     EmployeeId = enrollment.EmployeeId, 
+                     CourseId = id,
+                     Country = enrollment.Country,
+                     Duration = enrollment.Duration
+                 });
+            }
+        }
+
         try
         {
             await _context.SaveChangesAsync();

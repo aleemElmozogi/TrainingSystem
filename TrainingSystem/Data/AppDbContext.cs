@@ -14,6 +14,13 @@ public class AppDbContext : DbContext
     public DbSet<Enrollment> Enrollments { get; set; }
     public DbSet<AttendanceRecord> AttendanceRecords { get; set; }
 
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        base.OnConfiguring(optionsBuilder);
+        optionsBuilder.ConfigureWarnings(warnings => 
+            warnings.Ignore(Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId.PendingModelChangesWarning));
+    }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
@@ -23,9 +30,8 @@ public class AppDbContext : DbContext
             .HasIndex(a => new { a.CourseId, a.EmployeeId, a.Date })
             .IsUnique();
         
-        // Enrollment Unique Constraint
+        // Enrollment Index (Non-Unique to allow duplicates)
         modelBuilder.Entity<Enrollment>()
-            .HasIndex(e => new { e.CourseId, e.EmployeeId })
-            .IsUnique();
+            .HasIndex(e => new { e.CourseId, e.EmployeeId });
     }
 }

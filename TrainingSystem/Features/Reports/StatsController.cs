@@ -23,7 +23,7 @@ public class StatsController : ControllerBase
         // 1. Attendance Percentage (Today)
         var today = DateTime.Today;
         var todayRecords = await _context.AttendanceRecords
-            .Where(a => a.Date.Date == today)
+            .Where(a => a.Date.HasValue && a.Date.Value.Date == today)
             .ToListAsync();
 
         double attendancePct = 0;
@@ -47,8 +47,8 @@ public class StatsController : ControllerBase
         // 2. Monthly Course Chart (Last 6 Months)
         var sixMonthsAgo = DateTime.Now.AddMonths(-5).Date;
         var courseData = await _context.Courses
-            .Where(c => c.StartDate >= sixMonthsAgo)
-            .GroupBy(c => new { c.StartDate.Year, c.StartDate.Month })
+            .Where(c => c.StartDate.HasValue && c.StartDate.Value >= sixMonthsAgo)
+            .GroupBy(c => new { Year = c.StartDate.Value.Year, Month = c.StartDate.Value.Month })
             .Select(g => new { Date = new DateTime(g.Key.Year, g.Key.Month, 1), Count = g.Count() })
             .ToListAsync();
 
@@ -83,7 +83,7 @@ public class StatsController : ControllerBase
         // correct logic: created in last 30 days? or just active count?
         // Let's go with "New Courses this month" vs "New Courses last month" to show activity.
         // Or simple count growth. Let's do Count Growth.
-        var coursesLastMonth = await _context.Courses.CountAsync(c => c.StartDate < lastMonthDate);
+        var coursesLastMonth = await _context.Courses.CountAsync(c => c.StartDate.HasValue && c.StartDate.Value < lastMonthDate);
         var coursesNow = await _context.Courses.CountAsync();
         double courseGrowth = 0;
         if (coursesLastMonth > 0)
